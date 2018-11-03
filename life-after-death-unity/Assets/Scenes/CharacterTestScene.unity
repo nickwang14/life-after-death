@@ -224,6 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWorldState: 1
+  objectRenderer: {fileID: 0}
+  objectCollider: {fileID: 0}
   transparentValue: 0.25
 --- !u!1 &467188107
 GameObject:
@@ -336,6 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWorldState: 0
+  objectRenderer: {fileID: 0}
+  objectCollider: {fileID: 0}
   transparentValue: 0.25
 --- !u!114 &519550786 stripped
 MonoBehaviour:
@@ -454,6 +458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWorldState: 0
+  objectRenderer: {fileID: 0}
+  objectCollider: {fileID: 0}
   transparentValue: 0.25
 --- !u!1 &671243798
 GameObject:

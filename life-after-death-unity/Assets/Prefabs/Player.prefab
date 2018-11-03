@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4141503701948564}
   - component: {fileID: 61591482487492800}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LowAttack Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4742995553262058}
   - component: {fileID: 212127502015501750}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4315901629054346}
   - component: {fileID: 61591615067247110}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HighAttack Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114847803416375704}
   - component: {fileID: 114354051404424822}
   - component: {fileID: 114063696435854838}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -9,6 +9,9 @@ public class PlayerStats : MonoBehaviour
     public event Action<float> onSoulsChange = delegate { };
     public event Action<PlayerState> onPlayerStateChange = delegate { };
 
+    int PlayerLightLayer = 12;
+    int PlayerDarkLayer = 13;
+
     public enum PlayerState { Alive, Dead, Destroyed };
 
     float startingHP = 50f;
@@ -113,12 +116,16 @@ public class PlayerStats : MonoBehaviour
     {
         State = PlayerState.Dead;
         Souls = startingSouls;
+
+        gameObject.layer = PlayerDarkLayer;
     }
 
     public void ResurrectPlayer()
     {
         State = PlayerState.Alive;
         HP = startingHP;
+
+        gameObject.layer = PlayerLightLayer;
     }
 
     public void DestroyPlayer()
