@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4307222337830338}
   - component: {fileID: 212163413359911870}
   - component: {fileID: 114916795136114790}
-  - component: {fileID: 114496271993804374}
+  - component: {fileID: 114956528946179220}
   m_Layer: 11
   m_Name: WallDark
   m_TagString: Untagged
@@ -40,6 +40,23 @@ GameObject:
   - component: {fileID: 61737216872307526}
   m_Layer: 11
   m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1967247454506970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4909236885324990}
+  - component: {fileID: 61548796061160430}
+  - component: {fileID: 114041245354316592}
+  m_Layer: 16
+  m_Name: PlayerHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,13 +82,52 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106564522893278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.48, y: 5.297, z: 0}
+  m_LocalPosition: {x: -6.979, y: -2.509, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4118587389719196}
+  - {fileID: 4909236885324990}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4909236885324990
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967247454506970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4307222337830338}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61548796061160430
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967247454506970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4500694, y: 1.9913459}
+  m_EdgeRadius: 0
 --- !u!61 &61737216872307526
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -95,23 +151,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 12.792624}
+  m_Size: {x: 2.4500694, y: 1.9913459}
   m_EdgeRadius: 0
---- !u!114 &114496271993804374
+--- !u!114 &114041245354316592
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1106564522893278}
+  m_GameObject: {fileID: 1967247454506970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
+  m_Script: {fileID: 11500000, guid: ec8b111e36a6cf04bbdedc2636f442a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWorldState: 0
-  objectRenderer: {fileID: 212163413359911870}
-  objectCollider: {fileID: 61737216872307526}
-  transparentValue: 0.25
+  spriteRenderer: {fileID: 212163413359911870}
+  boxCollider: {fileID: 61548796061160430}
 --- !u!114 &114916795136114790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +179,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212163413359911870}
   boxCollider: {fileID: 61737216872307526}
+--- !u!114 &114956528946179220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106564522893278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfcf622fc745db4ca7b5dfcb115d70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWorldState: 1
+  objectRenderer: {fileID: 212163413359911870}
+  objectCollider: {fileID: 61737216872307526}
+  transparentValue: 0.25
+  terrainHitBox: {fileID: 61548796061160430}
+  playerHitBox: {fileID: 0}
 --- !u!212 &212163413359911870
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -165,7 +236,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 4.4809346, y: 12.792624}
+  m_Size: {x: 2.4500694, y: 1.9913459}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

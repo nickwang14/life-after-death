@@ -105,10 +105,13 @@ public class PlayerMovement : MonoBehaviour
         Vector2 newPosition = transform.position;
         newPosition += PlayerSpeed;
 
-        
+
 
         //PlayerRigidbody.MovePosition(newPosition);
-        PlayerRigidbody.velocity = PlayerSpeed;
+        if (thePlayer.PlayerStats.State != PlayerStats.PlayerState.Destroyed)
+            PlayerRigidbody.velocity = PlayerSpeed;
+        else
+            PlayerRigidbody.velocity = Vector2.zero;
     }
 
     bool IsGrounded()

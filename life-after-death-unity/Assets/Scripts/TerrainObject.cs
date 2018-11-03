@@ -6,11 +6,18 @@ public class TerrainObject : WorldObject
 {
     bool PlayerIsInWall = false;
 
+    [SerializeField]
+    Collider2D terrainHitBox;
+
+    [SerializeField]
+    Collider2D playerHitBox;
+
+
     protected override void EnableObject()
     {
         if (CheckIfPlayerIsInTerrain())
         {
-            Debug.Log("You ded");
+            Debug.Log("YOU DIED");
             GameSceneManager.ActivePlayer.PlayerStats.DestroyPlayer();
             PlayerIsInWall = false;
         }
@@ -21,26 +28,14 @@ public class TerrainObject : WorldObject
 
     bool CheckIfPlayerIsInTerrain()
     {
+        PlayerIsInWall = terrainHitBox.bounds.Intersects(playerHitBox.bounds);
+
+
         if (PlayerIsInWall)
             return true;
         else
             return false;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.tag == "Player")
-        {
-            PlayerIsInWall = true;
-        }
-    }
 
-    void OnTriggerExit2D(Collider2D col)
-    {
-
-        if (col.tag == "Player")
-        {
-            PlayerIsInWall = false;
-        }
-    }
 }
