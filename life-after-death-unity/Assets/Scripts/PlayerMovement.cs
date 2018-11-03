@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     Vector2 PlayerSpeed = Vector2.zero;
 
@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     float MovementDeceleration = 3.0f;
 
+    [SerializeField]
+    float JumpingForce = 0.2f;
+
     Collider2D PlayerCollider;
 
     [SerializeField]
@@ -20,8 +23,6 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     float OppositeMovementMultiplier = 2.5f;
-
-    bool IsGround = true;
 
     Rigidbody2D PlayerRigidbody;
 
@@ -36,6 +37,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         //Movement
+
+
+
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             if (PlayerSpeed.x > 0.0f)
@@ -66,7 +70,13 @@ public class Player : MonoBehaviour
         if (IsGrounded())
         {
             Debug.Log("Grounded");
-            PlayerSpeed.y = 0.0f;
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                PlayerSpeed.y += JumpingForce;
+            }
+
+            else
+                PlayerSpeed.y = 0.0f;
         }
 
         else
@@ -76,19 +86,26 @@ public class Player : MonoBehaviour
         newPosition += PlayerSpeed;
 
         PlayerRigidbody.MovePosition(newPosition);
-
     }
 
     bool IsGrounded()
     {
         RaycastHit2D isGroundedRay = new RaycastHit2D();
 
-        isGroundedRay = Physics2D.Raycast(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y), -Vector2.up, 0.1f);
-        Debug.DrawRay(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y, 0.0f), -Vector2.up, Color.red);
+        isGroundedRay = Physics2D.Raycast(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f);
 
-
-        if (isGroundedRay.collider.tag == "Ground")
-            return true;
+        if (isGroundedRay)
+        {
+            if (isGroundedRay.collider != null)
+            {
+                if (isGroundedRay.collider.tag == "Ground")
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
         else
             return false;
     }
