@@ -9,7 +9,7 @@ public class EnemyHitBox : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        Player player = collision.GetComponentInParent<Player>();
+        Player player = collision.GetComponent<Player>();
         if (player != null)
             player.PlayerStats.DamagePlayer(damageAmout);
     }

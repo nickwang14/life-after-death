@@ -20,7 +20,7 @@ TagManager:
   - WallDark
   - PlayerLight
   - PlayerDark
-  - EnemyAlive
+  - EnemyLight
   - EnemyDark
   - 
   - 
