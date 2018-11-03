@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     BoxCollider2D HighAttackTrigger;
 
-    float HighAttackXValue;
+    //float HighAttackXValue;
 
     [SerializeField]
     PlayerMovement player;
@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
         HighAttackSprite.enabled = false;
         HighAttackTrigger.enabled = false;
 
-        HighAttackXValue = HighAttackTrigger.transform.position.x;
+        //HighAttackXValue = HighAttackTrigger.transform.position.x;
     }
 	
 	// Update is called once per frame
