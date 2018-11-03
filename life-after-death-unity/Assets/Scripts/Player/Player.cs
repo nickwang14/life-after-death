@@ -19,4 +19,9 @@ public class Player : MonoBehaviour
     {
         get { return playerStats; }
     }
+
+    public void DamagePlayer(float amount)
+    {
+        playerStats.ChangePlayerHealth(-amount);
+    }
 }

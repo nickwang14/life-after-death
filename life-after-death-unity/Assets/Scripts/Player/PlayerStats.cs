@@ -108,4 +108,9 @@ public class PlayerStats : MonoBehaviour
     {
         State = PlayerState.Destroyed;
     }
+
+    public void ChangePlayerHealth(float amount)
+    {
+        HP += amount;
+    }
 }
