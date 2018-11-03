@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1144803573515978
 GameObject:
   m_ObjectHideFlags: 1
@@ -58,7 +58,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1417607129187796
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53407e54d8610a949a9ca3b451c4a68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
+  thePlayer: {fileID: 114847803416375704}
   lightLayerMask:
     serializedVersion: 2
     m_Bits: 1536
@@ -271,12 +271,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2560
   cornerBalancingOffset: 0.1
-  MovementAcceleration: 6
-  MaxSpeed: 6
+  MovementAcceleration: 8
+  MaxSpeed: 7
   MovementDeceleration: 3
-  JumpingForce: 7
+  JumpingForce: 10
   GravityAcceleration: 10
-  OppositeMovementMultiplier: 2.5
+  OppositeMovementMultiplier: 3
   anim: {fileID: 95402032253373912}
   spriteDirection: {fileID: 212109849545729290}
 --- !u!114 &114794421964121720

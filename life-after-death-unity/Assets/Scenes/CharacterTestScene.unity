@@ -803,6 +803,26 @@ Prefab:
       propertyPath: thePlayer
       value: 
       objectReference: {fileID: 1290913872}
+    - target: {fileID: 114354051404424822, guid: 4ced6a5bda8e32543b275b07e8106c69,
+        type: 2}
+      propertyPath: JumpingForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354051404424822, guid: 4ced6a5bda8e32543b275b07e8106c69,
+        type: 2}
+      propertyPath: MaxSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354051404424822, guid: 4ced6a5bda8e32543b275b07e8106c69,
+        type: 2}
+      propertyPath: MovementAcceleration
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354051404424822, guid: 4ced6a5bda8e32543b275b07e8106c69,
+        type: 2}
+      propertyPath: OppositeMovementMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ced6a5bda8e32543b275b07e8106c69, type: 2}
   m_IsPrefabAsset: 0
