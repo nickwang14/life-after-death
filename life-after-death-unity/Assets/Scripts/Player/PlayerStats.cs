@@ -22,7 +22,17 @@ public class PlayerStats : MonoBehaviour
     float currentHP;
     float currentSouls;
 
+    [SerializeField]
+    float invulTime = 1.5f;
+
+    float invulTimer = 0f;
+
     PlayerState state = PlayerState.Alive;
+
+    public bool IsInvulnerable
+    {
+        get { return invulTimer > 0f; }
+    }
 
     public PlayerState State
     {
@@ -90,6 +100,8 @@ public class PlayerStats : MonoBehaviour
                 ResurrectPlayer();
             }
         }
+
+        invulTimer = Mathf.MoveTowards(invulTimer, 0f, Time.deltaTime);
     }
 
     public void KillPlayer()
@@ -109,8 +121,12 @@ public class PlayerStats : MonoBehaviour
         State = PlayerState.Destroyed;
     }
 
-    public void ChangePlayerHealth(float amount)
+    public void DamagePlayer(float amount, bool force = false)
     {
-        HP += amount;
+        if (force || !IsInvulnerable)
+        {
+            HP -= Mathf.Abs(amount);
+            invulTimer = invulTime;
+        }
     }
 }

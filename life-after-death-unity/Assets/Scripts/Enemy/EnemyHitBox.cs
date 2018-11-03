@@ -11,6 +11,6 @@ public class EnemyHitBox : MonoBehaviour
     {
         Player player = collision.GetComponentInParent<Player>();
         if (player != null)
-            player.DamagePlayer(damageAmout);
+            player.PlayerStats.DamagePlayer(damageAmout);
     }
 }
