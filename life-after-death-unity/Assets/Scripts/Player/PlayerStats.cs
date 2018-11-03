@@ -74,6 +74,11 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        HP = MaxHP;
+    }
+
     void Update()
     {
         switch (state)
