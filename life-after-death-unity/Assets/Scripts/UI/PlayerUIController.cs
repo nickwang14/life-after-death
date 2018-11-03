@@ -16,6 +16,11 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField]
     Slider playerSoulsSlider;
 
+    [SerializeField]
+    Image keyIcon;
+    [SerializeField]
+    Text numberOfKeyText;
+
     void Start()
     {
         playerStats = GameSceneManager.ActivePlayer.PlayerStats;
@@ -27,6 +32,8 @@ public class PlayerUIController : MonoBehaviour
         //playerStats.onSoulsChange += OnSoulsChangeHandler;
         //playerSoulsSlider.maxValue = PlayerStats.MaxSouls;
         //OnSoulsChangeHandler(playerStats.Souls);
+
+        OnKeyNumberChangeHandler(0);
     }
 
     void OnDestroy()
@@ -46,5 +53,25 @@ public class PlayerUIController : MonoBehaviour
     void OnSoulsChangeHandler(float newSoul)
     {
         playerSoulsSlider.value = newSoul;
+    }
+
+    void OnKeyNumberChangeHandler(int newNumberOfKeys)
+    {
+        if (newNumberOfKeys == 0)
+        {
+            keyIcon.gameObject.SetActive(false);
+            numberOfKeyText.gameObject.SetActive(false);
+        }
+        else if (newNumberOfKeys == 1)
+        {
+            keyIcon.gameObject.SetActive(true);
+            numberOfKeyText.gameObject.SetActive(false);
+        }
+        else
+        {
+            keyIcon.gameObject.SetActive(true);
+            numberOfKeyText.gameObject.SetActive(true);
+            numberOfKeyText.text = string.Format("x {0}", newNumberOfKeys.ToString());
+        }
     }
 }
