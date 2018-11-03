@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 224007616510189582}
   - component: {fileID: 222654020716139234}
   - component: {fileID: 114406757466139990}
+  - component: {fileID: 114642757322552438}
   m_Layer: 5
   m_Name: KeyIcon
   m_TagString: Untagged
@@ -248,7 +249,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: acced5c9be71e6b41bd4ffbd2797de6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -273,6 +274,20 @@ MonoBehaviour:
   playerSoulsSlider: {fileID: 0}
   keyIcon: {fileID: 114406757466139990}
   numberOfKeyText: {fileID: 114156374210458172}
+--- !u!114 &114642757322552438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938342896134944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &114711856820229322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -571,6 +586,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.200012, y: -8.899994}
+  m_AnchoredPosition: {x: -10.200012, y: -8.900024}
   m_SizeDelta: {x: 30.940002, y: 252.66003}
   m_Pivot: {x: 1, y: 1}
