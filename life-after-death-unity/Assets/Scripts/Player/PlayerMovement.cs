@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerSpeed = PlayerRigidbody.velocity;
         //Movement
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
@@ -101,12 +102,17 @@ public class PlayerMovement : MonoBehaviour
         Vector2 newPosition = transform.position;
         newPosition += PlayerSpeed;
 
-        PlayerRigidbody.MovePosition(newPosition);
+        
+
+        //PlayerRigidbody.MovePosition(newPosition);
+        PlayerRigidbody.velocity = PlayerSpeed;
     }
 
     bool IsGrounded()
     {
         RaycastHit2D isGroundedRay = new RaycastHit2D();
+        //RaycastHit2D isGroundedRayRight = new RaycastHit2D();
+        //RaycastHit2D isGroundedRayLeft = new RaycastHit2D();
 
 
 

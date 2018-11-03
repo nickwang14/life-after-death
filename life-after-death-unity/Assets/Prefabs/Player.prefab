@@ -293,11 +293,11 @@ MonoBehaviour:
   darkLayerMask:
     serializedVersion: 2
     m_Bits: 2560
-  MovementAcceleration: 0.15
-  MaxSpeed: 0.2
+  MovementAcceleration: 6
+  MaxSpeed: 6
   MovementDeceleration: 3
-  JumpingForce: 0.2
-  GravityAcceleration: 0.4
+  JumpingForce: 7
+  GravityAcceleration: 10
   OppositeMovementMultiplier: 2.5
 --- !u!114 &114794421964121720
 MonoBehaviour:

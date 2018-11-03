@@ -60,7 +60,7 @@ public class WorldObject : MonoBehaviour
             }
         }
 
-        else if(newState ==PlayerStats.PlayerState.Dead)
+        else if(newState == PlayerStats.PlayerState.Dead)
         {
             if (objectCurrentWorldState == WorldState.Light)
             {
@@ -74,13 +74,18 @@ public class WorldObject : MonoBehaviour
         }
     }
 
-    void EnableObject()
+    virtual protected void EnableObject()
     {
         Color newAlpha = objectRenderer.material.color;
         newAlpha.a = 1.0f;
         objectRenderer.material.color = newAlpha;
+<<<<<<< HEAD
         Debug.Log("wasdasdsa");
         objectCollider.enabled = true;
+=======
+
+        objectCollider.isTrigger = false;
+>>>>>>> 1b02c898add1b0ce684bdd860a8c903e8e0652d8
     }
 
     void DisableObject()
@@ -89,7 +94,7 @@ public class WorldObject : MonoBehaviour
         newAlpha.a = transparentValue;
         objectRenderer.material.color = newAlpha;
 
-        objectCollider.enabled = false;
+        objectCollider.isTrigger = true;
     }
 
     // Update is called once per frame
