@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4196554336518090}
   - component: {fileID: 70253218447329528}
   - component: {fileID: 114874860135694500}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: DamageHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,9 @@ MonoBehaviour:
   rigid: {fileID: 50135217253252216}
   anim: {fileID: 95180726442690776}
   speed: 1
-  patrolPoints: []
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114874860135694500
 MonoBehaviour:
   m_ObjectHideFlags: 1
