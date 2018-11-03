@@ -7,9 +7,10 @@ public class GameSceneManager : MonoBehaviour
     static GameSceneManager instance = null;
 
     [SerializeField]
-    GameObject playerPrefab;
-
     Player player;
+
+    [SerializeField]
+    FollowCamera followCamera;
 
     void Awake()
     {
@@ -18,7 +19,7 @@ public class GameSceneManager : MonoBehaviour
 
     void Start()
     {
-        player = Instantiate<GameObject>(playerPrefab).GetComponent<Player>();
+        followCamera.Target = player.transform;
     }
 
     void OnDestroy()
