@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask lightLayerMask;
     public LayerMask darkLayerMask;
 
+    [SerializeField]
+    float cornerBalancingOffset = 0.1f;
+
 
     FacingDirection directionFacing = FacingDirection.FacingRight;
     public FacingDirection GetDirectionFacing() { return directionFacing; }
@@ -111,25 +114,27 @@ public class PlayerMovement : MonoBehaviour
     bool IsGrounded()
     {
         RaycastHit2D isGroundedRay = new RaycastHit2D();
-        //RaycastHit2D isGroundedRayRight = new RaycastHit2D();
-        //RaycastHit2D isGroundedRayLeft = new RaycastHit2D();
+        RaycastHit2D isGroundedRayRight = new RaycastHit2D();
+        RaycastHit2D isGroundedRayLeft = new RaycastHit2D();
 
 
 
         if (thePlayer.PlayerStats.State == PlayerStats.PlayerState.Alive)
         {
             isGroundedRay = Physics2D.Raycast(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, lightLayerMask.value);
-            //isGroundedRayRight = Physics2D.Raycast(transform.position - new Vector3(PlayerCollider.bounds.extents.x, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, lightLayerMask.value);
-            //isGroundedRayLeft = Physics2D.Raycast(transform.position - new Vector3(-PlayerCollider.bounds.extents.x, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, lightLayerMask.value);
+            isGroundedRayRight = Physics2D.Raycast(transform.position - new Vector3(PlayerCollider.bounds.extents.x - cornerBalancingOffset, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, lightLayerMask.value);
+            isGroundedRayLeft = Physics2D.Raycast(transform.position - new Vector3(-PlayerCollider.bounds.extents.x + cornerBalancingOffset, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, lightLayerMask.value);
         }
         else if(thePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
         {
             isGroundedRay = Physics2D.Raycast(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, darkLayerMask.value);
+            isGroundedRayRight = Physics2D.Raycast(transform.position - new Vector3(PlayerCollider.bounds.extents.x - cornerBalancingOffset, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, darkLayerMask.value);
+            isGroundedRayLeft = Physics2D.Raycast(transform.position - new Vector3(-PlayerCollider.bounds.extents.x + cornerBalancingOffset, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, darkLayerMask.value);
         }
 
-        if (isGroundedRay)
+        if (isGroundedRay || isGroundedRayRight || isGroundedRayLeft)
         {
-            if (isGroundedRay.collider != null)        
+            if (isGroundedRay.collider != null || isGroundedRayRight.collider != null || isGroundedRayLeft.collider != null)
                 return true;            
             else
                 return false;
