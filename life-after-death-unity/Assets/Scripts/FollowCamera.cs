@@ -10,6 +10,7 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     Camera followCamera;
 
+    [SerializeField]
     Transform followTarget = null;
     bool shouldFollow = true;
 
