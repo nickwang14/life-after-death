@@ -25,14 +25,14 @@ public class GameSceneManager : MonoBehaviour
     {
         public Renderer objectRenderer
         {
-            get { return objectRenderer; }
-            set { objectRenderer = value; }
+            get;
+            set;
         }
 
-        public Collider objectCollider
+        public Collider2D objectCollider
         {
-            get { return objectCollider; }
-            set { objectCollider = value; }
+            get;
+            set;
         }
     }
 
@@ -52,11 +52,12 @@ public class GameSceneManager : MonoBehaviour
 
         if (lightWorldTerrain != null)
         {
-            worldObject newObject = new worldObject();
-            foreach (GameObject item in lightWorldTerrain.GetComponentsInChildren<GameObject>())
+            
+            foreach (Transform item in lightWorldTerrain.transform)
             {
+                worldObject newObject = new worldObject();
                 newObject.objectRenderer = item.GetComponent<Renderer>();
-                newObject.objectCollider = item.GetComponent<Collider>();
+                newObject.objectCollider = item.GetComponent<Collider2D>();
 
                 lightWorldTerrainList.Add(newObject);
             }
@@ -68,11 +69,11 @@ public class GameSceneManager : MonoBehaviour
 
         if (darkWorldTerrain != null)
         {
-            worldObject newObject = new worldObject();
-            foreach (GameObject item in darkWorldTerrain.GetComponentsInChildren<GameObject>())
+            foreach (Transform item in darkWorldTerrain.transform)
             {
+                worldObject newObject = new worldObject();
                 newObject.objectRenderer = item.GetComponent<Renderer>();
-                newObject.objectCollider = item.GetComponent<Collider>();
+                newObject.objectCollider = item.GetComponent<Collider2D>();
 
                 darkWorldTerrainList.Add(newObject);
             }
@@ -123,7 +124,7 @@ public class GameSceneManager : MonoBehaviour
                 i.objectRenderer.material.color = newAlpha;
 
                 //Collider
-                i.objectCollider.gameObject.SetActive(true);
+                i.objectCollider.enabled = true;
             }
 
             foreach (worldObject i in darkWorldTerrainList)
@@ -134,7 +135,7 @@ public class GameSceneManager : MonoBehaviour
                 i.objectRenderer.material.color = newAlpha;
 
                 //Collider
-                i.objectCollider.gameObject.SetActive(false);
+                i.objectCollider.enabled = false;
             }
         }
 
@@ -148,7 +149,7 @@ public class GameSceneManager : MonoBehaviour
                 i.objectRenderer.material.color = newAlpha;
 
                 //Collider
-                i.objectCollider.gameObject.SetActive(false);
+                i.objectCollider.enabled = false;
             }
 
             foreach (worldObject i in darkWorldTerrainList)
@@ -159,7 +160,7 @@ public class GameSceneManager : MonoBehaviour
                 i.objectRenderer.material.color = newAlpha;
 
                 //Collider
-                i.objectCollider.gameObject.SetActive(true);
+                i.objectCollider.enabled = true; 
             }
         }
     }
