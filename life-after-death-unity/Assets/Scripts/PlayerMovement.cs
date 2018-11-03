@@ -6,6 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     Vector2 PlayerSpeed = Vector2.zero;
 
+    public enum FacingDirection
+    {
+        FacingLeft,
+        FacingRight
+    }
+
+
+    FacingDirection directionFacing = FacingDirection.FacingRight;
+    public FacingDirection GetDirectionFacing() { return directionFacing; }
+
     [SerializeField]
     float MovementAcceleration = 1.0f;
     [SerializeField]
@@ -37,11 +47,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Movement
-
-
-
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            directionFacing = FacingDirection.FacingLeft;
             if (PlayerSpeed.x > 0.0f)
             {
                 PlayerSpeed.x -= (MovementAcceleration * OppositeMovementMultiplier) * Time.deltaTime;
@@ -52,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            directionFacing = FacingDirection.FacingRight;
             if (PlayerSpeed.x < 0.0f)
             {
                 PlayerSpeed.x += (MovementAcceleration * OppositeMovementMultiplier) * Time.deltaTime;
@@ -69,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
         //Gravity
         if (IsGrounded())
         {
-            Debug.Log("Grounded");
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 PlayerSpeed.y += JumpingForce;

@@ -6,6 +6,7 @@ public class GameSceneManager : MonoBehaviour
 {
     static GameSceneManager instance = null;
 
+
     [SerializeField]
     GameObject playerPrefab;
 
