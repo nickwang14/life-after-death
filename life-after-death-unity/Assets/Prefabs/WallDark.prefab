@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4307222337830338}
   - component: {fileID: 212163413359911870}
   - component: {fileID: 114916795136114790}
-  m_Layer: 9
-  m_Name: Wall
+  - component: {fileID: 114496271993804374}
+  m_Layer: 11
+  m_Name: WallDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4118587389719196}
   - component: {fileID: 61737216872307526}
-  m_Layer: 9
+  - component: {fileID: 114002600224528484}
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,6 +98,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114002600224528484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739091460532532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWorldState: 1
+  transparentValue: 0.25
+  player: {fileID: 0}
+--- !u!114 &114496271993804374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106564522893278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWorldState: 0
+  transparentValue: 0.25
+  player: {fileID: 0}
 --- !u!114 &114916795136114790
 MonoBehaviour:
   m_ObjectHideFlags: 1
