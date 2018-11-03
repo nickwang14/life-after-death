@@ -7,15 +7,9 @@ public class GameSceneManager : MonoBehaviour
 {
     static GameSceneManager instance = null;
 
-<<<<<<< HEAD
-
-    [SerializeField]
-    GameObject playerPrefab;
-=======
     static public event Action<PlayerStats.PlayerState> onPlayerStateChange;
 
     PlayerStats.PlayerState playerState = PlayerStats.PlayerState.Alive;
->>>>>>> 98977a8e49fe2b14fd60e0186b48dabb6060ea6e
 
     [SerializeField]
     Player player;
