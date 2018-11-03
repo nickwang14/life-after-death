@@ -84,7 +84,7 @@ public class GameSceneManager : MonoBehaviour
 
     void Start()
     {
-        followCamera.Target = player.transform;
+        //followCamera.Target = player.transform;
         playerState = player.PlayerStats.State;
         player.PlayerStats.onPlayerStateChange += OnStateChangeHandler;
     }
