@@ -25,7 +25,7 @@ public class WorldObject : MonoBehaviour
     float transparentValue = 0.25f;
 
 	// Use this for initialization
-	void Start ()
+	protected virtual void Start()
     {
         objectRenderer = GetComponent<Renderer>();
         objectCollider = GetComponentInChildren<Collider2D>();

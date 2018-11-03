@@ -38,7 +38,6 @@ public class PlayerAttack : MonoBehaviour
                 Attack();
             }
         }
-
     }
 
     void Attack()

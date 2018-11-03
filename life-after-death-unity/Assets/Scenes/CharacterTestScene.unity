@@ -227,6 +227,17 @@ MonoBehaviour:
   objectRenderer: {fileID: 0}
   objectCollider: {fileID: 0}
   transparentValue: 0.25
+  terrainHitBox: {fileID: 0}
+--- !u!70 &248614691 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 70197614270925574, guid: 4ced6a5bda8e32543b275b07e8106c69,
+    type: 2}
+  m_PrefabInternal: {fileID: 1091992184}
+--- !u!4 &248614695 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4189706114814658, guid: 4ced6a5bda8e32543b275b07e8106c69,
+    type: 2}
+  m_PrefabInternal: {fileID: 1091992184}
 --- !u!1 &467188107
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +352,7 @@ MonoBehaviour:
   objectRenderer: {fileID: 0}
   objectCollider: {fileID: 0}
   transparentValue: 0.25
+  terrainHitBox: {fileID: 0}
 --- !u!114 &519550786 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114233057520587784, guid: eaa9211d40b6d524a9dc1940e4cc339f,
@@ -384,27 +396,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4053234128053366, guid: 9bf403002e99a3e449cdd1bff77ef334, type: 2}
       propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204828776878062, guid: 9bf403002e99a3e449cdd1bff77ef334,
+        type: 2}
+      propertyPath: playerHitBox
+      value: 
+      objectReference: {fileID: 248614691}
+    - target: {fileID: 1944267069152862, guid: 9bf403002e99a3e449cdd1bff77ef334, type: 2}
+      propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212781848402318712, guid: 9bf403002e99a3e449cdd1bff77ef334,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.8977988
-      objectReference: {fileID: 0}
-    - target: {fileID: 212781848402318712, guid: 9bf403002e99a3e449cdd1bff77ef334,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 3.1199214
-      objectReference: {fileID: 0}
-    - target: {fileID: 61410767671815634, guid: 9bf403002e99a3e449cdd1bff77ef334,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 3.1199214
-      objectReference: {fileID: 0}
-    - target: {fileID: 61410767671815634, guid: 9bf403002e99a3e449cdd1bff77ef334,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.8977988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf403002e99a3e449cdd1bff77ef334, type: 2}
@@ -523,6 +524,7 @@ MonoBehaviour:
   objectRenderer: {fileID: 0}
   objectCollider: {fileID: 0}
   transparentValue: 0.25
+  terrainHitBox: {fileID: 0}
 --- !u!1 &671243798
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +733,21 @@ Prefab:
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114233057520587784, guid: eaa9211d40b6d524a9dc1940e4cc339f,
+        type: 2}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 248614695}
+    - target: {fileID: 20056234670359562, guid: eaa9211d40b6d524a9dc1940e4cc339f,
+        type: 2}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20056234670359562, guid: eaa9211d40b6d524a9dc1940e4cc339f,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa9211d40b6d524a9dc1940e4cc339f, type: 2}
   m_IsPrefabAsset: 0
@@ -771,7 +788,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4189706114814658, guid: 4ced6a5bda8e32543b275b07e8106c69, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1178016680880784, guid: 4ced6a5bda8e32543b275b07e8106c69, type: 2}
       propertyPath: m_IsActive
@@ -781,6 +798,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114354051404424822, guid: 4ced6a5bda8e32543b275b07e8106c69,
+        type: 2}
+      propertyPath: thePlayer
+      value: 
+      objectReference: {fileID: 1290913872}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ced6a5bda8e32543b275b07e8106c69, type: 2}
   m_IsPrefabAsset: 0
@@ -857,33 +879,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4307222337830338, guid: d12fef1df348d6548befa9b8b46ad7a6, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114496271993804374, guid: d12fef1df348d6548befa9b8b46ad7a6,
+    - target: {fileID: 114956528946179220, guid: d12fef1df348d6548befa9b8b46ad7a6,
         type: 2}
-      propertyPath: startingWorldState
+      propertyPath: playerHitBox
+      value: 
+      objectReference: {fileID: 248614691}
+    - target: {fileID: 212163413359911870, guid: d12fef1df348d6548befa9b8b46ad7a6,
+        type: 2}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 61737216872307526, guid: d12fef1df348d6548befa9b8b46ad7a6,
+    - target: {fileID: 114956528946179220, guid: d12fef1df348d6548befa9b8b46ad7a6,
         type: 2}
-      propertyPath: m_Size.x
-      value: 2.4500694
-      objectReference: {fileID: 0}
-    - target: {fileID: 212163413359911870, guid: d12fef1df348d6548befa9b8b46ad7a6,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 2.4500694
-      objectReference: {fileID: 0}
-    - target: {fileID: 212163413359911870, guid: d12fef1df348d6548befa9b8b46ad7a6,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.9913459
-      objectReference: {fileID: 0}
-    - target: {fileID: 61737216872307526, guid: d12fef1df348d6548befa9b8b46ad7a6,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.9913459
-      objectReference: {fileID: 0}
+      propertyPath: terrainHitBox
+      value: 
+      objectReference: {fileID: 1727003789}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12fef1df348d6548befa9b8b46ad7a6, type: 2}
   m_IsPrefabAsset: 0
@@ -924,7 +936,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4533965914441070, guid: 9503304c081633b4e8d5de3858fc8ea4, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114630645751783714, guid: 9503304c081633b4e8d5de3858fc8ea4,
         type: 2}
@@ -954,6 +966,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9503304c081633b4e8d5de3858fc8ea4, type: 2}
   m_IsPrefabAsset: 0
+--- !u!61 &1727003789 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 61548796061160430, guid: d12fef1df348d6548befa9b8b46ad7a6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1492050104}
 --- !u!1 &1830717637
 GameObject:
   m_ObjectHideFlags: 0

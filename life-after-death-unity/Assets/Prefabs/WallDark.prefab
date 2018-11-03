@@ -21,11 +21,7 @@ GameObject:
   - component: {fileID: 4307222337830338}
   - component: {fileID: 212163413359911870}
   - component: {fileID: 114916795136114790}
-<<<<<<< HEAD
-  - component: {fileID: 114472086727804364}
-=======
   - component: {fileID: 114956528946179220}
->>>>>>> eb3cf053cb715e446f4f14d5eba5e22dcd3d367a
   m_Layer: 11
   m_Name: WallDark
   m_TagString: Untagged
@@ -86,11 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106564522893278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 42.93, y: 5.31, z: 0}
-=======
   m_LocalPosition: {x: -6.979, y: -2.509, z: 0}
->>>>>>> eb3cf053cb715e446f4f14d5eba5e22dcd3d367a
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4118587389719196}
@@ -161,11 +153,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4500694, y: 1.9913459}
   m_EdgeRadius: 0
-<<<<<<< HEAD
---- !u!114 &114472086727804364
-=======
 --- !u!114 &114041245354316592
->>>>>>> eb3cf053cb715e446f4f14d5eba5e22dcd3d367a
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,21 +161,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1967247454506970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 3dfcf622fc745db4ca7b5dfcb115d70f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingWorldState: 1
-  objectRenderer: {fileID: 0}
-  objectCollider: {fileID: 0}
-  transparentValue: 0.25
-=======
   m_Script: {fileID: 11500000, guid: ec8b111e36a6cf04bbdedc2636f442a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212163413359911870}
   boxCollider: {fileID: 61548796061160430}
->>>>>>> eb3cf053cb715e446f4f14d5eba5e22dcd3d367a
 --- !u!114 &114916795136114790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +195,6 @@ MonoBehaviour:
   objectCollider: {fileID: 61737216872307526}
   transparentValue: 0.25
   terrainHitBox: {fileID: 61548796061160430}
-  playerHitBox: {fileID: 0}
 --- !u!212 &212163413359911870
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -258,11 +235,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-<<<<<<< HEAD
-  m_Size: {x: 1, y: 12.792624}
-=======
   m_Size: {x: 2.4500694, y: 1.9913459}
->>>>>>> eb3cf053cb715e446f4f14d5eba5e22dcd3d367a
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

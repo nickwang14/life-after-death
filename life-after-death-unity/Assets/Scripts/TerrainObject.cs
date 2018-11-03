@@ -9,8 +9,14 @@ public class TerrainObject : WorldObject
     [SerializeField]
     Collider2D terrainHitBox;
 
-    [SerializeField]
+    
     Collider2D playerHitBox;
+
+    protected override void Start()
+    {
+        playerHitBox = GameSceneManager.ActivePlayer.GetComponent<Collider2D>();
+        base.Start();
+    }
 
 
     protected override void EnableObject()
