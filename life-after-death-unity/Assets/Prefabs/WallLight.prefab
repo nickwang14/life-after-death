@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4053234128053366}
   - component: {fileID: 212781848402318712}
   - component: {fileID: 114857236344931966}
-  - component: {fileID: 114128270128358002}
+  - component: {fileID: 114058311069746608}
   m_Layer: 10
   m_Name: WallLight
   m_TagString: Untagged
@@ -97,7 +97,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 12.792624}
   m_EdgeRadius: 0
---- !u!114 &114128270128358002
+--- !u!114 &114058311069746608
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,12 +105,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1944267069152862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dfcf622fc745db4ca7b5dfcb115d70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWorldState: 1
-  objectRenderer: {fileID: 212781848402318712}
-  objectCollider: {fileID: 61410767671815634}
+  startingWorldState: 0
+  objectRenderer: {fileID: 0}
+  objectCollider: {fileID: 0}
   transparentValue: 0.25
 --- !u!114 &114857236344931966
 MonoBehaviour:
