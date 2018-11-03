@@ -16,12 +16,12 @@ TagManager:
   - 
   - Player
   - WallBoth
-  - WallAlive
-  - WallDead
-  - CharacterAlive
-  - CharacterDead
-  - 
-  - 
+  - WallLight
+  - WallDark
+  - PlayerLight
+  - PlayerDark
+  - EnemyAlive
+  - EnemyDark
   - 
   - 
   - 

@@ -286,6 +286,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53407e54d8610a949a9ca3b451c4a68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thePlayer: {fileID: 0}
+  lightLayerMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  darkLayerMask:
+    serializedVersion: 2
+    m_Bits: 2560
   MovementAcceleration: 0.15
   MaxSpeed: 0.2
   MovementDeceleration: 3

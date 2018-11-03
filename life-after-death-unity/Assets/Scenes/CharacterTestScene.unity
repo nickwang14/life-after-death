@@ -124,7 +124,8 @@ GameObject:
   - component: {fileID: 127601205}
   - component: {fileID: 127601204}
   - component: {fileID: 127601203}
-  m_Layer: 0
+  - component: {fileID: 127601206}
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -211,6 +212,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127601201}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &127601206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127601201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWorldState: 1
+  transparentValue: 0.25
 --- !u!1 &467188107
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +236,8 @@ GameObject:
   - component: {fileID: 467188111}
   - component: {fileID: 467188110}
   - component: {fileID: 467188109}
-  m_Layer: 0
+  - component: {fileID: 467188112}
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -236,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467188107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: -2.5, z: 0}
+  m_LocalPosition: {x: 4, y: 2.75, z: 0}
   m_LocalScale: {x: 3, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1192182379}
@@ -309,6 +324,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467188107}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &467188112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467188107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWorldState: 0
+  transparentValue: 0.25
 --- !u!114 &519550786 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114233057520587784, guid: eaa9211d40b6d524a9dc1940e4cc339f,
@@ -326,7 +354,8 @@ GameObject:
   - component: {fileID: 667978341}
   - component: {fileID: 667978340}
   - component: {fileID: 667978339}
-  m_Layer: 0
+  - component: {fileID: 667978342}
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -413,6 +442,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 667978337}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &667978342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667978337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWorldState: 0
+  transparentValue: 0.25
 --- !u!1 &671243798
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +466,7 @@ GameObject:
   - component: {fileID: 671243801}
   - component: {fileID: 671243800}
   - component: {fileID: 671243799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}

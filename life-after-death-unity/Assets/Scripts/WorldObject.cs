@@ -22,10 +22,6 @@ public class WorldObject : MonoBehaviour
     [Range(0, 1)]
     float transparentValue = 0.25f;
 
-
-    [SerializeField]
-    Player player;
-
 	// Use this for initialization
 	void Start ()
     {

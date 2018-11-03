@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
         FacingRight
     }
 
+    [SerializeField]
+    Player thePlayer;
+
+    public LayerMask lightLayerMask;
+    public LayerMask darkLayerMask;
+
 
     FacingDirection directionFacing = FacingDirection.FacingRight;
     public FacingDirection GetDirectionFacing() { return directionFacing; }
@@ -41,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerRigidbody = GetComponent<Rigidbody2D>();
         PlayerCollider = GetComponent<Collider2D>();
+        if (thePlayer == null)
+            thePlayer = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -100,17 +108,21 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D isGroundedRay = new RaycastHit2D();
 
-        isGroundedRay = Physics2D.Raycast(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f);
+
+
+        if (thePlayer.PlayerStats.State == PlayerStats.PlayerState.Alive)
+        {
+            isGroundedRay = Physics2D.Raycast(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, lightLayerMask.value);
+        }
+        else if(thePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
+        {
+            isGroundedRay = Physics2D.Raycast(transform.position - new Vector3(0.0f, PlayerCollider.bounds.extents.y + 0.01f), -Vector2.up, 0.05f, darkLayerMask.value);
+        }
 
         if (isGroundedRay)
         {
-            if (isGroundedRay.collider != null)
-            {
-                if (isGroundedRay.collider.tag == "Ground")
-                    return true;
-                else
-                    return false;
-            }
+            if (isGroundedRay.collider != null)        
+                return true;            
             else
                 return false;
         }
