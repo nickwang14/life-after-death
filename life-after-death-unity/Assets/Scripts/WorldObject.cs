@@ -15,7 +15,9 @@ public class WorldObject : MonoBehaviour
     WorldState startingWorldState = WorldState.Light;
     WorldState objectCurrentWorldState;
 
+    [SerializeField]
     Renderer objectRenderer;
+    [SerializeField]
     Collider2D objectCollider;
 
     [SerializeField]
@@ -26,7 +28,7 @@ public class WorldObject : MonoBehaviour
 	void Start ()
     {
         objectRenderer = GetComponent<Renderer>();
-        objectCollider = GetComponent<Collider2D>();
+        objectCollider = GetComponentInChildren<Collider2D>();
 
         objectCurrentWorldState = startingWorldState;
 
@@ -77,7 +79,7 @@ public class WorldObject : MonoBehaviour
         Color newAlpha = objectRenderer.material.color;
         newAlpha.a = 1.0f;
         objectRenderer.material.color = newAlpha;
-
+        Debug.Log("wasdasdsa");
         objectCollider.enabled = true;
     }
 

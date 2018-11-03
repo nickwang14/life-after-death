@@ -38,7 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4118587389719196}
   - component: {fileID: 61737216872307526}
-  - component: {fileID: 114002600224528484}
   m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
@@ -65,8 +64,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106564522893278}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 46.48, y: 5.297, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4118587389719196}
@@ -96,22 +95,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0000001, y: 12.792624}
   m_EdgeRadius: 0
---- !u!114 &114002600224528484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1739091460532532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af2c7c29d74c0346b60e727759f77ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingWorldState: 1
-  transparentValue: 0.25
-  player: {fileID: 0}
 --- !u!114 &114496271993804374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,8 +109,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWorldState: 0
+  objectRenderer: {fileID: 212163413359911870}
+  objectCollider: {fileID: 61737216872307526}
   transparentValue: 0.25
-  player: {fileID: 0}
 --- !u!114 &114916795136114790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,7 +165,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1.0000001, y: 1}
+  m_Size: {x: 4.4809346, y: 12.792624}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
