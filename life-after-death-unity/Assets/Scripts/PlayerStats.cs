@@ -84,7 +84,7 @@ public class PlayerStats : MonoBehaviour
         Souls = startingSouls;
     }
 
-    public void ResurectPlayer()
+    public void ResurrectPlayer()
     {
         State = PlayerState.Alive;
         HP = startingHP;
