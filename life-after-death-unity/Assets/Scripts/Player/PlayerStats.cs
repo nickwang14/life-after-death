@@ -19,8 +19,8 @@ public class PlayerStats : MonoBehaviour
 
     float soulsDecayRate = 1f;//Soul decay per second
 
-    const float MaxHP = 100f;
-    const float MaxSouls = 100f;
+    public const float MaxHP = 100f;
+    public const float MaxSouls = 100f;
 
     float currentHP;
     float currentSouls;

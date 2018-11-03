@@ -4,45 +4,47 @@ using UnityEngine.UI;
 
 public class PlayerUIController : MonoBehaviour
 {
-    public PlayerStats playerStats;
-    public Slider playerHealth;
-    public float health;
-    public Slider playerSoul;
-    
-    // Use this for initialization
+    PlayerStats playerStats;
+
+    [SerializeField]
+    GameObject playerHPConainter;
+    [SerializeField]
+    Slider playerHpSlider;
+
+    [SerializeField]
+    GameObject playerSoulsContainer;
+    [SerializeField]
+    Slider playerSoulsSlider;
+
     void Start()
     {
         playerStats = GameSceneManager.ActivePlayer.PlayerStats;
-        playerStats.onHPChange += HPHandler;
-        playerStats.onSoulsChange += SoulHandler;
-        //playerStats.onPlayerStateChange += StateHandler;
-        playerHealth.maxValue = health;
+
+        playerHpSlider.maxValue = PlayerStats.MaxHP;
+        playerStats.onHPChange += OnHPChangeHandler;
+        OnHPChangeHandler(playerStats.HP);
+
+        //playerStats.onSoulsChange += OnSoulsChangeHandler;
+        //playerSoulsSlider.maxValue = PlayerStats.MaxSouls;
+        //OnSoulsChangeHandler(playerStats.Souls);
     }
 
-    // Teardown and Deregister
-    private void OnDestroy()
+    void OnDestroy()
     {
-        playerStats.onHPChange -= HPHandler;
-        playerStats.onSoulsChange -= SoulHandler;
-        //playerStats.onPlayerStateChange -= StateHandler;
+        if (playerStats != null)
+        {
+            playerStats.onHPChange -= OnHPChangeHandler;
+            playerStats.onSoulsChange -= OnSoulsChangeHandler;
+        }
     }
 
-    // Called on Playerstat change
-    void HPHandler(float newHP)
+    void OnHPChangeHandler(float newHP)
     {
-        playerHealth.value = newHP;
+        playerHpSlider.value = newHP;
     }
 
-    // Called on Playerstat change
-    void SoulHandler(float newSoul)
+    void OnSoulsChangeHandler(float newSoul)
     {
-        playerSoul.value = newSoul;
+        playerSoulsSlider.value = newSoul;
     }
-
-    // Called on Playerstat change
-    /*void StateHandler(PlayerStats.Playerstate newState)
-    {
-    }*/
-
-
 }
