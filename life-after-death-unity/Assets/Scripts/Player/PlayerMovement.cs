@@ -43,16 +43,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float OppositeMovementMultiplier = 2.5f;
 
+    [SerializeField]
+    Animator anim;
+
+    [SerializeField]
+    SpriteRenderer spriteDirection;
+
     Rigidbody2D PlayerRigidbody;
+
+    const string moveFloatString = "HorizontalSpeed";
+    readonly int moveFloatHash = Animator.StringToHash(moveFloatString);
+    const string jumpFloatString = "VerticalSpeed";
+    readonly int jumpFloatHash = Animator.StringToHash(jumpFloatString);
 
     // Use this for initialization
     void Start()
     {
         PlayerRigidbody = GetComponent<Rigidbody2D>();
         PlayerCollider = GetComponent<Collider2D>();
+        anim.SetFloat(moveFloatHash, PlayerSpeed.x);
         if (thePlayer == null)
             thePlayer = GetComponent<Player>();
-    }
+   }
 
     // Update is called once per frame
     void Update()
@@ -68,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
                 PlayerSpeed.x -= MovementAcceleration * Time.deltaTime;
+
         }
 
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
@@ -102,18 +115,26 @@ public class PlayerMovement : MonoBehaviour
         else
             PlayerSpeed.y -= GravityAcceleration * Time.deltaTime;
 
+        // Player Direction
+        if (directionFacing == FacingDirection.FacingRight)
+            spriteDirection.flipX = false;
+        else
+            spriteDirection.flipX = true;
+
         Vector2 newPosition = transform.position;
         newPosition += PlayerSpeed;
-
-
 
         //PlayerRigidbody.MovePosition(newPosition);
         if (thePlayer.PlayerStats.State != PlayerStats.PlayerState.Destroyed)
             PlayerRigidbody.velocity = PlayerSpeed;
         else
             PlayerRigidbody.velocity = Vector2.zero;
+
+        anim.SetFloat(moveFloatHash, Mathf.Abs(PlayerSpeed.x));
+        anim.SetFloat(jumpFloatHash, Mathf.Abs(PlayerSpeed.y));
     }
 
+    
     bool IsGrounded()
     {
         RaycastHit2D isGroundedRay = new RaycastHit2D();
