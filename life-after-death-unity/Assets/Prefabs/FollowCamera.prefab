@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4565375256156774}
   - component: {fileID: 20056234670359562}
   - component: {fileID: 81711070851129294}
-  - component: {fileID: 114929439298504362}
+  - component: {fileID: 114233057520587784}
   m_Layer: 0
   m_Name: FollowCamera
   m_TagString: Untagged
@@ -89,7 +89,7 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501875386311594}
   m_Enabled: 1
---- !u!114 &114929439298504362
+--- !u!114 &114233057520587784
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501875386311594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dee93bc4ca2d9cc48af6b16cd88dde10, type: 3}
+  m_Script: {fileID: 11500000, guid: d456f5af25d0145e293983da35c29c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   followSpeed: 100
