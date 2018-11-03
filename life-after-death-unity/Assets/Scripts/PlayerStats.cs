@@ -24,10 +24,10 @@ public class PlayerStats : MonoBehaviour
 
     PlayerState state = PlayerState.Alive;
 
-    PlayerState State
+    public PlayerState State
     {
         get { return state; }
-        set
+        protected set
         {
             state = value;
             onPlayerStateChange(value);
