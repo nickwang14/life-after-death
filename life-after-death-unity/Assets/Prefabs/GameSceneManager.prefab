@@ -51,7 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664dae0e2f759fc41822791ee3897776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1417607129187796, guid: 4ced6a5bda8e32543b275b07e8106c69,
-    type: 2}
-  followCameraPrefab: {fileID: 1501875386311594, guid: eaa9211d40b6d524a9dc1940e4cc339f,
-    type: 2}
+  lightWorldTerrain: {fileID: 0}
+  darkWorldTerrain: {fileID: 0}
+  transparentValue: 0.25
+  player: {fileID: 0}
+  followCamera: {fileID: 0}

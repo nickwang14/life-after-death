@@ -76,6 +76,20 @@ public class PlayerStats : MonoBehaviour
             case PlayerState.Destroyed:
                 break;
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            //Switch World
+            if (State == PlayerStats.PlayerState.Alive)
+            {
+                KillPlayer();
+            }
+
+            else if (State == PlayerStats.PlayerState.Dead)
+            {
+                ResurrectPlayer();
+            }
+        }
     }
 
     public void KillPlayer()
