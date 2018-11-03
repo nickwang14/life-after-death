@@ -270,13 +270,15 @@ MonoBehaviour:
   darkLayerMask:
     serializedVersion: 2
     m_Bits: 2560
+  cornerBalancingOffset: 0.1
   MovementAcceleration: 6
   MaxSpeed: 6
   MovementDeceleration: 3
   JumpingForce: 7
   GravityAcceleration: 10
   OppositeMovementMultiplier: 2.5
-  anim: {fileID: 0}
+  anim: {fileID: 95402032253373912}
+  spriteDirection: {fileID: 212109849545729290}
 --- !u!114 &114794421964121720
 MonoBehaviour:
   m_ObjectHideFlags: 1
