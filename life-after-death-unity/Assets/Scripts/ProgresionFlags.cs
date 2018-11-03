@@ -22,4 +22,9 @@ public class ProgresionFlags
     {
         return flagHashSet.Contains(flagName);
     }
+
+    public void ResetAllFlags()
+    {
+        flagHashSet.Clear();
+    }
 }

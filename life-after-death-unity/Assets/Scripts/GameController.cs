@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {
     static GameController instance = null;
 
+    ProgresionFlags progressionFlags;
+
     void Awake()
     {
         if (instance == null)
@@ -17,5 +19,10 @@ public class GameController : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    public static ProgresionFlags ProgresionFlags
+    {
+        get { return instance != null ? instance.progressionFlags : null; }
     }
 }
