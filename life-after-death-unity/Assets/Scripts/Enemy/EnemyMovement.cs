@@ -22,22 +22,53 @@ public class EnemyMovement : MonoBehaviour
 
     bool leftFacing = true;
 
+    [SerializeField]
+    Transform[] patrolPoints;
+
+    int patrolPointIndex = 0;
+
+    Vector2 target;
+
     void Start()
     {
         anim.SetFloat(speedFlotHash, speed);
+        target = patrolPoints[patrolPointIndex].position;
     }
 
     void Update()
     {
-        MoveForward();
+        //MoveForward();
+        MoveTowardsTarget();
     }
 
-    public void MoveForward()
+    void MoveForward()
     {
         if (leftFacing)
             rigid.MovePosition(transform.position + new Vector3(-speed * Time.deltaTime, 0f, 0f));
         else
             rigid.MovePosition(transform.position + new Vector3(speed * Time.deltaTime, 0f, 0f));
+    }
+
+    void MoveTowardsTarget()
+    {
+        float move = target.x - transform.position.x;
+        if (move == 0f)
+            SetNextWaypoint();
+
+        if (move > 0f && leftFacing)
+            TurnArround();
+        else if (move < 0f && !leftFacing)
+            TurnArround();
+
+        float newX = Mathf.MoveTowards(transform.position.x, target.x, speed * Time.deltaTime);
+        float oldY = transform.position.y;
+        rigid.MovePosition(new Vector2(newX, oldY));
+    }
+
+    void SetNextWaypoint()
+    {
+        patrolPointIndex = (patrolPointIndex + 1) % patrolPoints.Length;
+        target = patrolPoints[patrolPointIndex].position;
     }
 
     public void TurnArround()
