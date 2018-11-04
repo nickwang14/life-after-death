@@ -11,6 +11,9 @@ public class PlayerAttack : MonoBehaviour
 
     float hitBoxX;
 
+    [SerializeField]
+    int Damage = 10;
+
     //float HighAttackXValue;
 
     [SerializeField]
@@ -75,6 +78,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
+            col.GetComponentInParent<Enemy>().TakeDamage(Damage);
             Debug.Log("HitEnemy");
         }
     }
