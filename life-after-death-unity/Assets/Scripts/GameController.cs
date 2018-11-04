@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     static GameController instance = null;
 
-    ProgresionFlags progressionFlags;
+    ProgresionFlags progressionFlags = new ProgresionFlags();
 
     void Awake()
     {

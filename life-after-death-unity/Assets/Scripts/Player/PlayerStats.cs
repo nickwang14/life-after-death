@@ -137,8 +137,19 @@ public class PlayerStats : MonoBehaviour
     {
         if (force || !IsInvulnerable)
         {
-            HP -= Mathf.Abs(amount);
-            invulTimer = invulTime;
+            switch (state)
+            {
+                case PlayerState.Alive:
+                    HP -= Mathf.Abs(amount);
+                    invulTimer = invulTime;
+                    break;
+                case PlayerState.Dead:
+                    Souls -= Mathf.Abs(amount);
+                    invulTimer = invulTime;
+                    break;
+                case PlayerState.Destroyed:
+                    break;
+            }
         }
     }
 }

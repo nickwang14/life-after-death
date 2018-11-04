@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     Vector2 PlayerSpeed = Vector2.zero;
 
+    public bool AllowInput{ get; set; }
+
     public enum FacingDirection
     {
         FacingLeft,
@@ -59,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        AllowInput = true;
         PlayerRigidbody = GetComponent<Rigidbody2D>();
         PlayerCollider = GetComponent<Collider2D>();
         anim.SetFloat(moveFloatHash, PlayerSpeed.x);
@@ -66,11 +69,8 @@ public class PlayerMovement : MonoBehaviour
             thePlayer = GetComponent<Player>();
    }
 
-    // Update is called once per frame
-    void Update()
+    void PlayerMovementHorizontal()
     {
-        PlayerSpeed = PlayerRigidbody.velocity;
-        //Movement
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             directionFacing = FacingDirection.FacingLeft;
@@ -99,11 +99,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         PlayerSpeed.x = Mathf.Clamp(PlayerSpeed.x, -MaxSpeed, MaxSpeed);
+    }
 
-        //Gravity
+    void GravityandJumping()
+    {
         if (IsGrounded())
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && AllowInput)
             {
                 PlayerSpeed.y += JumpingForce;
             }
@@ -114,13 +116,19 @@ public class PlayerMovement : MonoBehaviour
 
         else
             PlayerSpeed.y -= GravityAcceleration * Time.deltaTime;
+    }
 
+    void Direction()
+    {
         // Player Direction
         if (directionFacing == FacingDirection.FacingRight)
             spriteDirection.flipX = false;
         else
             spriteDirection.flipX = true;
+    }
 
+    void SettingFinalMovement()
+    {
         Vector2 newPosition = transform.position;
         newPosition += PlayerSpeed;
 
@@ -129,9 +137,29 @@ public class PlayerMovement : MonoBehaviour
             PlayerRigidbody.velocity = PlayerSpeed;
         else
             PlayerRigidbody.velocity = Vector2.zero;
+    }
 
+    void Animations()
+    {
         anim.SetFloat(moveFloatHash, Mathf.Abs(PlayerSpeed.x));
         anim.SetFloat(jumpFloatHash, Mathf.Abs(PlayerSpeed.y));
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        PlayerSpeed = PlayerRigidbody.velocity;
+
+        if(AllowInput)
+            PlayerMovementHorizontal();
+
+        GravityandJumping();
+
+        Direction();
+
+        SettingFinalMovement();
+
+        Animations();
     }
 
     

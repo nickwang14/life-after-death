@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4463880977754540}
   - component: {fileID: 61410767671815634}
+  - component: {fileID: 114312426043774896}
   m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
@@ -169,7 +170,19 @@ MonoBehaviour:
   objectCollider: {fileID: 61410767671815634}
   transparentValue: 0.25
   terrainHitBox: {fileID: 61965625896736220}
-  playerHitBox: {fileID: 0}
+--- !u!114 &114312426043774896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913483523402752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8b111e36a6cf04bbdedc2636f442a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212781848402318712}
+  boxCollider: {fileID: 61965625896736220}
 --- !u!114 &114857236344931966
 MonoBehaviour:
   m_ObjectHideFlags: 1
