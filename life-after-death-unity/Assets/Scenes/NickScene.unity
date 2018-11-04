@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123613948}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Patrol1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,11 +135,43 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 123613947}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.53, y: -2.01, z: 0}
+  m_LocalPosition: {x: -2.4637785, y: 0.41623044, z: 0.07622216}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
+  m_Father: {fileID: 210952354}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &210952353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210952354}
+  m_Layer: 0
+  m_Name: Patrol Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210952354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210952353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9337784, y: -2.4262304, z: -0.07622216}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 123613948}
+  - {fileID: 444445526}
+  - {fileID: 1731578619}
+  - {fileID: 397051845}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &215314951
 Prefab:
@@ -240,6 +272,34 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 357593484}
   m_Script: {fileID: 11500000, guid: 479437f1eee31fd4aa5c64085968863d, type: 3}
+--- !u!1 &397051844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 397051845}
+  m_Layer: 0
+  m_Name: DeadPatrol2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &397051845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 397051844}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.52, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 210952354}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &420774431
 Prefab:
   m_ObjectHideFlags: 0
@@ -301,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444445526}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Patrol2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,11 +374,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 444445525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.4700003, y: -2.1899998, z: 0}
+  m_LocalPosition: {x: 5.536222, y: 0.23623061, z: 0.07622216}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 210952354}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &476859864
 Prefab:
@@ -477,7 +537,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4434245304101272, guid: 612d3d445e8955449ad086bf4ef8b2cb, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114412278371487908, guid: 612d3d445e8955449ad086bf4ef8b2cb,
         type: 2}
@@ -534,6 +594,21 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf403002e99a3e449cdd1bff77ef334, type: 2}
   m_IsPrefabAsset: 0
+--- !u!50 &887598429 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 50430109141521434, guid: 55e8a2e697822b248a9107c089134aa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1915690244}
+--- !u!95 &887598430 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95937169971961868, guid: 55e8a2e697822b248a9107c089134aa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1915690244}
+--- !u!212 &887598431 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212450205895784238, guid: 55e8a2e697822b248a9107c089134aa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1915690244}
 --- !u!95 &934298107 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95402032253373912, guid: 4ced6a5bda8e32543b275b07e8106c69,
@@ -960,11 +1035,34 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 1922993969}
   - {fileID: 1922993969}
---- !u!70 &1682074847 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 70180827925291296, guid: 55e8a2e697822b248a9107c089134aa2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1915690244}
+--- !u!1 &1731578618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1731578619}
+  m_Layer: 0
+  m_Name: DeadPatrol1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1731578619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1731578618}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.47, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 210952354}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1825976927
 Prefab:
   m_ObjectHideFlags: 0
@@ -1019,6 +1117,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114240126333923810, guid: 55e8a2e697822b248a9107c089134aa2,
+        type: 2}
+      propertyPath: patrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4762480022194652, guid: 55e8a2e697822b248a9107c089134aa2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.95
@@ -1049,7 +1152,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4762480022194652, guid: 55e8a2e697822b248a9107c089134aa2, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 114240126333923810, guid: 55e8a2e697822b248a9107c089134aa2,
         type: 2}
@@ -1061,21 +1164,21 @@ Prefab:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 444445526}
-    - target: {fileID: 114229241200942816, guid: 55e8a2e697822b248a9107c089134aa2,
+    - target: {fileID: 114240126333923810, guid: 55e8a2e697822b248a9107c089134aa2,
         type: 2}
-      propertyPath: enemyRenderer
+      propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114229241200942816, guid: 55e8a2e697822b248a9107c089134aa2,
+      objectReference: {fileID: 887598431}
+    - target: {fileID: 114240126333923810, guid: 55e8a2e697822b248a9107c089134aa2,
         type: 2}
-      propertyPath: enemyCollider
+      propertyPath: rigid
       value: 
-      objectReference: {fileID: 1682074847}
-    - target: {fileID: 114229241200942816, guid: 55e8a2e697822b248a9107c089134aa2,
+      objectReference: {fileID: 887598429}
+    - target: {fileID: 114240126333923810, guid: 55e8a2e697822b248a9107c089134aa2,
         type: 2}
-      propertyPath: enemyState
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 887598430}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e8a2e697822b248a9107c089134aa2, type: 2}
   m_IsPrefabAsset: 0
