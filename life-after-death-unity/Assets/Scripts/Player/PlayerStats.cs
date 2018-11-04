@@ -84,6 +84,8 @@ public class PlayerStats : MonoBehaviour
         get { return currentSouls; }
         set
         {
+            if (State != PlayerState.Dead)
+                return;
             currentSouls = value;
             if (currentSouls < 0f)
             {
@@ -119,16 +121,19 @@ public class PlayerStats : MonoBehaviour
             case PlayerState.Dead:
                 if (player.PlayerMovement.AllowInput)
                     Souls -= soulsDecayRate * Time.deltaTime;
-                ParticleSystem.EmissionModule emission = soulsParticleSystem.emission;
+                ParticleSystem.EmissionModule emission;
+                if(soulsParticleSystem != null)
+                    emission = soulsParticleSystem.emission;
                 float normalizedSouls = Souls / MaxSouls;
-                emission.rateOverTime = 100.0f * normalizedSouls;
+                if (soulsParticleSystem != null)
+                    emission.rateOverTime = 100.0f * normalizedSouls;
                 //soulsParticleSystem.setem = emission;
                 break;
             case PlayerState.Destroyed:
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Jump"))
         {
             //Switch World
             if (State == PlayerStats.PlayerState.Alive)
@@ -139,6 +144,11 @@ public class PlayerStats : MonoBehaviour
             else if (State == PlayerStats.PlayerState.Dead)
             {
                 ResurrectPlayer();
+            }
+
+            else if(State == PlayerState.Destroyed)
+            {
+                HP = 0;
             }
         }
 
@@ -161,7 +171,8 @@ public class PlayerStats : MonoBehaviour
     {
         State = PlayerState.Dead;
         Souls = startingSouls;
-        soulsParticleSystem.Play();
+        if (soulsParticleSystem != null)
+            soulsParticleSystem.Play();
 
         gameObject.layer = PlayerDarkLayer;
     }
@@ -170,7 +181,8 @@ public class PlayerStats : MonoBehaviour
     {
         State = PlayerState.Alive;
         HP = startingHP;
-        soulsParticleSystem.Stop();
+        if (soulsParticleSystem != null)
+            soulsParticleSystem.Stop();
 
         gameObject.layer = PlayerLightLayer;
     }

@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(Input.GetKey(KeyCode.Space) && player.AllowInput)
+        if((Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Fire3")) && player.AllowInput)
         {
             if(!isAttacking)
             {

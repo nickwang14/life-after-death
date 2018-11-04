@@ -71,26 +71,28 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerMovementHorizontal()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        float horizontalAxis = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || horizontalAxis <= -0.2f)
         {
             directionFacing = FacingDirection.FacingLeft;
             if (PlayerSpeed.x > 0.0f)
             {
-                PlayerSpeed.x -= (MovementAcceleration * OppositeMovementMultiplier) * Time.deltaTime;
+                PlayerSpeed.x -= ((MovementAcceleration * OppositeMovementMultiplier) * -horizontalAxis) * Time.deltaTime;
             }
             else
-                PlayerSpeed.x -= MovementAcceleration * Time.deltaTime;
+                PlayerSpeed.x -= (MovementAcceleration * -horizontalAxis) * Time.deltaTime;
 
         }
 
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || horizontalAxis >= 0.2f)
         {
             directionFacing = FacingDirection.FacingRight;
             if (PlayerSpeed.x < 0.0f)
             {
-                PlayerSpeed.x += (MovementAcceleration * OppositeMovementMultiplier) * Time.deltaTime;
+                PlayerSpeed.x += ((MovementAcceleration * OppositeMovementMultiplier) * horizontalAxis) * Time.deltaTime;
             }
-            PlayerSpeed.x += MovementAcceleration * Time.deltaTime;
+            else
+                PlayerSpeed.x += (MovementAcceleration * horizontalAxis) * Time.deltaTime;
         }
 
         else
@@ -105,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
-            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && AllowInput)
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Fire1")) && AllowInput)
             {
                 PlayerSpeed.y += JumpingForce;
             }
