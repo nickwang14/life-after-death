@@ -51,6 +51,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     SpriteRenderer spriteDirection;
 
+    [SerializeField]
+    PlayerSoundManager sfx;
+
     Rigidbody2D PlayerRigidbody;
 
     const string moveFloatString = "HorizontalSpeed";
@@ -75,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || horizontalAxis <= -0.2f)
         {
             directionFacing = FacingDirection.FacingLeft;
+            sfx.PlaySound("walk");
             if (PlayerSpeed.x > 0.0f)
             {
                 PlayerSpeed.x -= ((MovementAcceleration * OppositeMovementMultiplier) * -horizontalAxis) * Time.deltaTime;
@@ -87,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || horizontalAxis >= 0.2f)
         {
             directionFacing = FacingDirection.FacingRight;
+            sfx.PlaySound("walk");
             if (PlayerSpeed.x < 0.0f)
             {
                 PlayerSpeed.x += ((MovementAcceleration * OppositeMovementMultiplier) * horizontalAxis) * Time.deltaTime;
@@ -110,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Fire1")) && AllowInput)
             {
                 PlayerSpeed.y += JumpingForce;
+                sfx.PlaySound("jump");
             }
 
             else
