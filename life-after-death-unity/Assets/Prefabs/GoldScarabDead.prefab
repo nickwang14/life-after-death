@@ -11,6 +11,23 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1834198749446516}
   m_IsPrefabAsset: 1
+--- !u!1 &1534919498216364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4706775447619180}
+  - component: {fileID: 70180827925291296}
+  - component: {fileID: 114502562786300146}
+  m_Layer: 16
+  m_Name: DamageHitBox
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1834198749446516
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,13 +41,27 @@ GameObject:
   - component: {fileID: 50430109141521434}
   - component: {fileID: 58505490664594360}
   - component: {fileID: 114240126333923810}
-  m_Layer: 0
+  - component: {fileID: 114229241200942816}
+  m_Layer: 15
   m_Name: GoldScarabDead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4706775447619180
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1534919498216364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4762480022194652}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4762480022194652
 Transform:
   m_ObjectHideFlags: 1
@@ -38,9 +69,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834198749446516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: 4.95, y: -2.04, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children:
+  - {fileID: 4706775447619180}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,6 +111,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!70 &70180827925291296
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1534919498216364}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04, y: 0}
+  m_Size: {x: 0.45, y: 0.3}
+  m_Direction: 1
 --- !u!95 &95937169971961868
 Animator:
   serializedVersion: 3
@@ -97,6 +144,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114229241200942816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834198749446516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c215b078430d9d348a4b53deb80b07e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyState: 0
+  EnemyHP: 20
+  invulTime: 1.5
+  enemyRenderer: {fileID: 0}
+  enemyCollider: {fileID: 0}
+  transparentValue: 0.25
+  EnemyHPIncrease: 10
 --- !u!114 &114240126333923810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +177,21 @@ MonoBehaviour:
   rigid: {fileID: 50430109141521434}
   anim: {fileID: 95937169971961868}
   speed: 1
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &114502562786300146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1534919498216364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5d3dfe721551a47a58f71a6ad04cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 30
 --- !u!212 &212450205895784238
 SpriteRenderer:
   m_ObjectHideFlags: 1
