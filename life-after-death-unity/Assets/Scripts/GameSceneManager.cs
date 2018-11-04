@@ -5,8 +5,15 @@ using System;
 
 public class GameSceneManager : MonoBehaviour
 {
+    enum GameState { Playing, GameSceneMenu, GameOverMenu }
+
+    GameState gameState = GameState.Playing;
+
     [SerializeField]
     GameSceneMenu gameSceneMenu;
+
+    [SerializeField]
+    GameSceneMenu gameOverMenu;
 
     static GameSceneManager instance = null;
 
@@ -43,7 +50,7 @@ public class GameSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.Playing)
             OpenGameSceneMenu();
     }
 
@@ -58,10 +65,17 @@ public class GameSceneManager : MonoBehaviour
         onPlayerStateChange(playerState);
     }
 
-    public void OpenGameSceneMenu()
+    void OpenGameSceneMenu()
     {
         gameSceneMenu.OpenMenu();
+        gameState = GameState.GameSceneMenu;
         PauseGame();
+    }
+
+    void OpenGameOverMenu()
+    {
+        gameOverMenu.OpenMenu();
+        gameState = GameState.GameOverMenu;
     }
 
     static void PauseGame()
@@ -72,5 +86,6 @@ public class GameSceneManager : MonoBehaviour
     public static void UnPauseGame()
     {
         Time.timeScale = 1f;
+        instance.gameState = GameState.Playing;
     }
 }
