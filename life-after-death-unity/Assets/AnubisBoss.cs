@@ -42,6 +42,14 @@ public class AnubisBoss : MonoBehaviour {
     [SerializeField]
     SpriteRenderer AnubisSprite;
 
+    bool isNowAttacking = false;
+
+    [SerializeField]
+    Collider2D playerDetectHitBox;
+
+    [SerializeField]
+    Collider2D playerHitBox;
+
     public bool IsInvulnerable
     {
         get { return invulTimer > 0f; }
@@ -85,25 +93,34 @@ public class AnubisBoss : MonoBehaviour {
             SetSpriteColor(baseColor);
         }
 
-        fireParticleTimer -= 1.0f * Time.deltaTime;
-
-        if(fireParticleTimer <= 0)
+        if (isNowAttacking)
         {
-            int attackChoice = Random.Range(0, 100);
+            fireParticleTimer -= 1.0f * Time.deltaTime;
 
-            if (attackChoice >= 0 && attackChoice <= 60)
-                Fire();
-
-            else if (attackChoice > 60 && attackChoice <= 70)
-                FireSpread(spreadBulletAmount);
-
-            else
+            if (fireParticleTimer <= 0)
             {
-                SpawnZombie();
-            }
+                int attackChoice = Random.Range(0, 100);
 
-            fireParticleTimer = TimerToFire;
+                if (attackChoice >= 0 && attackChoice <= 60)
+                    Fire();
+
+                else if (attackChoice > 60 && attackChoice <= 70)
+                    FireSpread(spreadBulletAmount);
+
+                else
+                {
+                    SpawnZombie();
+                }
+
+                fireParticleTimer = TimerToFire;
+            }
         }
+
+        if(playerDetectHitBox.IsTouching(playerHitBox))
+        {
+            isNowAttacking = true;
+        }
+            
 
     }
 
