@@ -6,10 +6,16 @@ public class Enemy : MonoBehaviour
 {
     public enum EnemyState { Alive, Dead };
 
-    public EnemyState enemyState = EnemyState.Alive;
+    private EnemyState enemyState = EnemyState.Alive;
+
+    [SerializeField]
+    EnemyState startingEnemyState = EnemyState.Alive;
 
     [SerializeField]
     int EnemyHP = 20;
+
+    [SerializeField]
+    int soulsAmount = 75;
 
     int MaxHP;
 
@@ -48,6 +54,11 @@ public class Enemy : MonoBehaviour
         GameSceneManager.ActivePlayer.PlayerStats.onPlayerStateChange += OnStateChangeHandler;
 
         baseColor = ((SpriteRenderer)enemyRenderer).color;
+
+        enemyState = startingEnemyState;
+        if (enemyState == EnemyState.Dead)
+            DisableObject();
+
     }
 
     private void OnDestroy()
@@ -125,6 +136,7 @@ public class Enemy : MonoBehaviour
 
         MaxHP = MaxHP + EnemyHPIncrease;
         EnemyHP = MaxHP;
+        GameSceneManager.ActivePlayer.PlayerStats.Souls += soulsAmount;
     }
 
     void DisableObject()

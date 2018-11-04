@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class FollowCamera : MonoBehaviour
 {
+    [SerializeField]
+    UnityEngine.PostProcessing.PostProcessingBehaviour postProcessing;
+
     [SerializeField]
     float followSpeed;
 
@@ -26,10 +30,28 @@ public class FollowCamera : MonoBehaviour
         set { followTarget = value; }
     }
 
+    private void Start()
+    {
+        postProcessing.enabled = false;
+    }
+
     void Update()
     {
         if (followTarget != null && shouldFollow)
             FollowTarget(Time.deltaTime);
+
+        if(GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
+        {
+            if (postProcessing.enabled != true)
+                postProcessing.enabled = true;
+        }
+
+        else
+        {
+            if (postProcessing.enabled != false)
+                postProcessing.enabled = false;
+        }
+        
     }
 
     void FollowTarget(float deltaTime)

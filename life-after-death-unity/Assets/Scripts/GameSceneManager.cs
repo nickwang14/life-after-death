@@ -5,12 +5,14 @@ using System;
 
 public class GameSceneManager : MonoBehaviour
 {
+    [SerializeField]
+    GameSceneMenu gameSceneMenu;
+
     static GameSceneManager instance = null;
 
     static public event Action<PlayerStats.PlayerState> onPlayerStateChange = delegate { };
 
     PlayerStats.PlayerState playerState = PlayerStats.PlayerState.Alive;
- 
 
     [SerializeField]
     Player player;
@@ -39,6 +41,12 @@ public class GameSceneManager : MonoBehaviour
             player.PlayerStats.onPlayerStateChange -= OnStateChangeHandler;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            OpenGameSceneMenu();
+    }
+
     static public Player ActivePlayer
     {
         get { return instance.player; }
@@ -50,7 +58,19 @@ public class GameSceneManager : MonoBehaviour
         onPlayerStateChange(playerState);
     }
 
+    public void OpenGameSceneMenu()
+    {
+        gameSceneMenu.OpenMenu();
+        PauseGame();
+    }
 
+    static void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
 
-  
+    public static void UnPauseGame()
+    {
+        Time.timeScale = 1f;
+    }
 }

@@ -155,8 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215b078430d9d348a4b53deb80b07e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyState: 0
+  startingEnemyState: 0
   EnemyHP: 20
+  soulsAmount: 75
   invulTime: 1.5
   enemyRenderer: {fileID: 0}
   enemyCollider: {fileID: 70253218447329528}
