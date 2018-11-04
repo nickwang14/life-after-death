@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 50297680107257532}
   - component: {fileID: 114050302353516824}
   - component: {fileID: 70612064703644846}
+  - component: {fileID: 114273624461756360}
   m_Layer: 14
   m_Name: Zombie
   m_TagString: Untagged
@@ -273,6 +274,26 @@ MonoBehaviour:
   EnemyDeathParticleSystem: {fileID: 198221722635374126}
   transparentValue: 0.25
   EnemyHPIncrease: 10
+--- !u!114 &114273624461756360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247021033812700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb424d11d787d54f80f88b8a18259ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 114050302353516824}
+  rigid: {fileID: 50297680107257532}
+  liveAnim: {fileID: 95813581338343912}
+  deadAnim: {fileID: 95159114076345560}
+  speed: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 3584
+  turnAroundDistance: 0.3
 --- !u!114 &114771053849925808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -471,7 +492,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.20392157}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
