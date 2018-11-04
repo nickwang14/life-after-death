@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4118587389719196}
   - component: {fileID: 61737216872307526}
+  - component: {fileID: 114445230287321230}
   m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106564522893278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.979, y: -2.509, z: 0}
+  m_LocalPosition: {x: -5.077, y: -2.509, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4118587389719196}
@@ -126,7 +127,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4500694, y: 1.9913459}
+  m_Size: {x: 6.2549553, y: 1.9913459}
   m_EdgeRadius: 0
 --- !u!61 &61737216872307526
 BoxCollider2D:
@@ -151,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4500694, y: 1.9913459}
+  m_Size: {x: 6.2549553, y: 1.9913459}
   m_EdgeRadius: 0
 --- !u!114 &114041245354316592
 MonoBehaviour:
@@ -166,6 +167,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212163413359911870}
   boxCollider: {fileID: 61548796061160430}
+--- !u!114 &114445230287321230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739091460532532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8b111e36a6cf04bbdedc2636f442a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212163413359911870}
+  boxCollider: {fileID: 61737216872307526}
 --- !u!114 &114916795136114790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,7 +249,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 2.4500694, y: 1.9913459}
+  m_Size: {x: 6.2549553, y: 1.9913459}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

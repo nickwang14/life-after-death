@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     BoxCollider2D HighAttackTrigger;
 
+    float hitBoxX;
+
     //float HighAttackXValue;
 
     [SerializeField]
@@ -25,13 +27,15 @@ public class PlayerAttack : MonoBehaviour
         HighAttackSprite.enabled = false;
         HighAttackTrigger.enabled = false;
 
+        hitBoxX = HighAttackSprite.transform.position.x;
+
         //HighAttackXValue = HighAttackTrigger.transform.position.x;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space) && player.AllowInput)
         {
             if(!isAttacking)
             {
@@ -42,7 +46,17 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
+        if(player.GetDirectionFacing() == PlayerMovement.FacingDirection.FacingRight)
+        {
+            if(HighAttackTrigger.transform.localPosition.x < 0)
+                HighAttackTrigger.transform.RotateAround(transform.position, Vector3.up, 180.0f);
+        }
 
+        else if (player.GetDirectionFacing() == PlayerMovement.FacingDirection.FacingLeft)
+        {
+            if (HighAttackTrigger.transform.localPosition.x > 0)
+                HighAttackTrigger.transform.RotateAround(transform.position, Vector3.up, 180.0f);
+        }
         isAttacking = true;
         HighAttackSprite.enabled = true;
         HighAttackTrigger.enabled = true;
@@ -57,9 +71,9 @@ public class PlayerAttack : MonoBehaviour
         HighAttackTrigger.enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (other.tag == "Enemy")
+        if (col.tag == "Enemy")
         {
             Debug.Log("HitEnemy");
         }
