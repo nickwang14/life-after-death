@@ -32,7 +32,11 @@ public class PlayerStats : MonoBehaviour
 
     int numOfKeys = 0;
 
+    SpriteRenderer spriteRenderer;
+
     PlayerState state = PlayerState.Alive;
+
+    Color baseColor;
 
     public bool IsInvulnerable
     {
@@ -82,6 +86,10 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         HP = MaxHP;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        baseColor = spriteRenderer.color;
     }
 
     void Update()
@@ -111,6 +119,18 @@ public class PlayerStats : MonoBehaviour
             }
         }
 
+        if (IsInvulnerable)
+        {
+            float emission = Mathf.PingPong(Time.time * 7.5f, 1.0f);
+
+            spriteRenderer.color = new Color(baseColor.r, emission, emission);
+        }
+        else
+        {
+            if (spriteRenderer.color != baseColor)
+                spriteRenderer.color = baseColor;
+        }
+
         invulTimer = Mathf.MoveTowards(invulTimer, 0f, Time.deltaTime);
     }
 
@@ -133,6 +153,7 @@ public class PlayerStats : MonoBehaviour
     public void DestroyPlayer()
     {
         State = PlayerState.Destroyed;
+        spriteRenderer.enabled = false;
     }
 
     public void DamagePlayer(float amount, bool force = false)

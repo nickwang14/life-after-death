@@ -76,10 +76,13 @@ public class PlayerAttack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Enemy")
+        if (isAttacking)
         {
-            col.GetComponentInParent<Enemy>().TakeDamage(Damage);
-            Debug.Log("HitEnemy");
+            if (col.tag == "Enemy")
+            {
+                col.GetComponentInParent<Enemy>().TakeDamage(Damage);
+                Debug.Log("HitEnemy");
+            }
         }
     }
 }

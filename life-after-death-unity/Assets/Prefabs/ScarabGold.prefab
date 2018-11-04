@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50135217253252216}
   - component: {fileID: 58860633936692172}
   - component: {fileID: 114412278371487908}
+  - component: {fileID: 114245133292440046}
   m_Layer: 14
   m_Name: ScarabGold
   m_TagString: Untagged
@@ -43,7 +44,7 @@ GameObject:
   - component: {fileID: 114874860135694500}
   m_Layer: 16
   m_Name: DamageHitBox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1190182168322642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.716, y: 0.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.57, y: -3.19, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4196554336518090}
   m_Father: {fileID: 0}
@@ -143,6 +144,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114245133292440046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190182168322642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c215b078430d9d348a4b53deb80b07e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyState: 0
+  EnemyHP: 20
+  invulTime: 1.5
+  enemyRenderer: {fileID: 0}
+  enemyCollider: {fileID: 70253218447329528}
+  transparentValue: 0.25
+  EnemyHPIncrease: 10
 --- !u!114 &114412278371487908
 MonoBehaviour:
   m_ObjectHideFlags: 1
