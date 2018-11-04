@@ -75,8 +75,8 @@ GameObject:
   - component: {fileID: 114063696435854838}
   - component: {fileID: 212109849545729290}
   - component: {fileID: 95402032253373912}
-  - component: {fileID: 114481383350863158}
-  - component: {fileID: 82099988946589002}
+  - component: {fileID: 82138898902348358}
+  - component: {fileID: 114969513366671976}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -255,7 +255,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3, y: 5}
   m_Direction: 0
---- !u!82 &82099988946589002
+--- !u!82 &82138898902348358
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,25 +409,7 @@ MonoBehaviour:
   OppositeMovementMultiplier: 3
   anim: {fileID: 95402032253373912}
   spriteDirection: {fileID: 212109849545729290}
-  sfx: {fileID: 0}
---- !u!114 &114481383350863158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417607129187796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ce757963c64452688697fd39b4bfc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerWalk: {fileID: 8300000, guid: 9f3ae687fbfe94b7ca5a9370616437a4, type: 3}
-  playerJump: {fileID: 8300000, guid: 4424cb762c3b14fea9e6bde8815fe33d, type: 3}
-  playerLand: {fileID: 8300000, guid: 17bb22e9349bb456dbb654af469abc75, type: 3}
-  playerDmg: {fileID: 8300000, guid: 13f2a394c0f794da0b3b740bb4e6cdda, type: 3}
-  playerAtk: {fileID: 8300000, guid: 11cbc19c470f54ffdaf31dbd0a043aa2, type: 3}
-  playerDeath: {fileID: 0}
-  playerDestroy: {fileID: 8300000, guid: 7f6a2fadc90964d568c2e4ac8b77ab91, type: 3}
+  sfx: {fileID: 114969513366671976}
 --- !u!114 &114794421964121720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,6 +439,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 114354051404424822}
   playerStats: {fileID: 114063696435854838}
+--- !u!114 &114969513366671976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417607129187796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ce757963c64452688697fd39b4bfc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWalk: {fileID: 8300000, guid: 562e98bc8ca9a4c9bb513cb9486b0d69, type: 3}
+  playerJump: {fileID: 8300000, guid: 4424cb762c3b14fea9e6bde8815fe33d, type: 3}
+  playerLand: {fileID: 0}
+  playerDmg: {fileID: 0}
+  playerAtk: {fileID: 0}
+  playerDeath: {fileID: 0}
+  playerDestroy: {fileID: 0}
 --- !u!198 &198936981109710896
 ParticleSystem:
   m_ObjectHideFlags: 1
