@@ -106,6 +106,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        if (IsInvulnerable)
+            return;
+
         EnemyHP -= dmg;
         EnemyHP = Mathf.Clamp(EnemyHP, 0, MaxHP);
         invulTimer = invulTime;

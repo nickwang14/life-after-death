@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     bool isAttacking = false;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         HighAttackSprite.enabled = false;
         HighAttackTrigger.enabled = false;
@@ -34,13 +34,13 @@ public class PlayerAttack : MonoBehaviour
 
         //HighAttackXValue = HighAttackTrigger.transform.position.x;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        if((Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Fire3")) && player.AllowInput)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Fire3")) && player.AllowInput)
         {
-            if(!isAttacking)
+            if (!isAttacking)
             {
                 Attack();
             }
@@ -49,9 +49,9 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        if(player.GetDirectionFacing() == PlayerMovement.FacingDirection.FacingRight)
+        if (player.GetDirectionFacing() == PlayerMovement.FacingDirection.FacingRight)
         {
-            if(HighAttackTrigger.transform.localPosition.x < 0)
+            if (HighAttackTrigger.transform.localPosition.x < 0)
                 HighAttackTrigger.transform.RotateAround(transform.position, Vector3.up, 180.0f);
         }
 
@@ -74,13 +74,14 @@ public class PlayerAttack : MonoBehaviour
         HighAttackTrigger.enabled = false;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (isAttacking)
         {
-            if (col.tag == "Enemy")
+            Enemy enemy = col.GetComponentInParent<Enemy>();
+            if (enemy != null)
             {
-                col.GetComponentInParent<Enemy>().TakeDamage(Damage);
+                enemy.TakeDamage(Damage);
                 Debug.Log("HitEnemy");
             }
         }
