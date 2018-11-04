@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     readonly int speedFlotHash = Animator.StringToHash(speedFloatString);
 
     [SerializeField]
-    SpriteRenderer spriteRenderer;
+    Enemy enemy;
 
     [SerializeField]
     Rigidbody2D rigid;
@@ -74,6 +74,6 @@ public class EnemyMovement : MonoBehaviour
     public void TurnArround()
     {
         leftFacing = !leftFacing;
-        spriteRenderer.flipX = !leftFacing;
+        enemy.SetSpriteFlip(!leftFacing);
     }
 }

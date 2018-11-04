@@ -29,9 +29,11 @@ public class Enemy : MonoBehaviour
         get { return invulTimer > 0f; }
     }
 
-
     [SerializeField]
-    Renderer enemyRenderer;
+    SpriteRenderer liveSprite;
+    [SerializeField]
+    SpriteRenderer deadSprite;
+
     [SerializeField]
     Collider2D enemyCollider;
 
@@ -42,20 +44,16 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     int EnemyHPIncrease = 10;
 
-    Color baseColor;
+    Color baseColor = Color.white;
 
-    // Use this for initialization
-    void Start ()
+    void Start()
     {
         MaxHP = EnemyHP;
 
-        enemyRenderer = GetComponent<Renderer>();
-        //enemyCollider = GetComponentInChildren<Collider2D>();
         GameSceneManager.ActivePlayer.PlayerStats.onPlayerStateChange += OnStateChangeHandler;
 
-        baseColor = ((SpriteRenderer)enemyRenderer).color;
-
         enemyState = startingEnemyState;
+        SetShownSprite(enemyState);
         if (enemyState == EnemyState.Dead)
             DisableObject();
 
@@ -66,21 +64,18 @@ public class Enemy : MonoBehaviour
         GameSceneManager.ActivePlayer.PlayerStats.onPlayerStateChange -= OnStateChangeHandler;
     }
 
-    // Update is called once per frame
-    void Update ()
+    void Update()
     {
         invulTimer = Mathf.MoveTowards(invulTimer, 0f, Time.deltaTime);
 
         if (IsInvulnerable)
         {
             float emission = Mathf.PingPong(Time.time * 7.5f, 1.0f);
-
-            ((SpriteRenderer)enemyRenderer).color = new Color(baseColor.r, emission, emission);
+            SetSpriteColor(new Color(baseColor.r, emission, emission));
         }
         else
         {
-            if (((SpriteRenderer)enemyRenderer).color != baseColor)
-                ((SpriteRenderer)enemyRenderer).color = baseColor;
+            SetSpriteColor(baseColor);
         }
     }
 
@@ -115,8 +110,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        if(enemyState == EnemyState.Alive)
+        if (enemyState == EnemyState.Alive)
         {
+            SetShownSprite(EnemyState.Dead);
             enemyState = EnemyState.Dead;
             if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
                 EnableObject();
@@ -125,8 +121,9 @@ public class Enemy : MonoBehaviour
                 DisableObject();
         }
 
-        else if(enemyState == EnemyState.Dead)
+        else if (enemyState == EnemyState.Dead)
         {
+            SetShownSprite(EnemyState.Alive);
             enemyState = EnemyState.Alive;
             if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Alive)
                 EnableObject();
@@ -141,19 +138,58 @@ public class Enemy : MonoBehaviour
 
     void DisableObject()
     {
-        Color newAlpha = enemyRenderer.material.color;
-        newAlpha.a = transparentValue;
-        enemyRenderer.material.color = newAlpha;
+        SetSpriteAlpha(transparentValue);
 
         enemyCollider.enabled = false;
     }
 
     void EnableObject()
     {
-        Color newAlpha = enemyRenderer.material.color;
-        newAlpha.a = 1.0f;
-        enemyRenderer.material.color = newAlpha;
+        SetSpriteAlpha(1f);
 
         enemyCollider.enabled = true;
+    }
+
+    void SetShownSprite(EnemyState state)
+    {
+        switch (state)
+        {
+            case EnemyState.Alive:
+                liveSprite.gameObject.SetActive(true);
+                deadSprite.gameObject.SetActive(false);
+                break;
+            case EnemyState.Dead:
+                liveSprite.gameObject.SetActive(false);
+                deadSprite.gameObject.SetActive(true);
+                break;
+        }
+    }
+
+    void SetSpriteColor(Color newColor)
+    {
+        Color liveColor = newColor;
+        liveColor.a = liveSprite.color.a;
+        liveSprite.color = liveColor;
+
+        Color deadColor = newColor;
+        deadColor.a = deadSprite.color.a;
+        deadSprite.color = deadColor;
+    }
+
+    void SetSpriteAlpha(float alpha)
+    {
+        Color liveColor = liveSprite.color;
+        liveColor.a = alpha;
+        liveSprite.color = liveColor;
+
+        Color deadColor = deadSprite.color;
+        deadColor.a = alpha;
+        deadSprite.color = deadColor;
+    }
+
+    public void SetSpriteFlip(bool isFliped)
+    {
+        liveSprite.flipX = isFliped;
+        deadSprite.flipX = isFliped;
     }
 }
