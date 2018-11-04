@@ -34,8 +34,10 @@ public class PlayerUIController : MonoBehaviour
         OnSoulsChangeHandler(playerStats.Souls);
 
         playerStats.onPlayerStateChange += OnStateChangeHandler;
+        OnStateChangeHandler(playerStats.State);
 
-        OnKeyNumberChangeHandler(0);
+        playerStats.onKeysChange += OnKeyNumberChangeHandler;
+        OnKeyNumberChangeHandler(playerStats.GetNumOfKeys());
     }
 
     void OnDestroy()
@@ -44,6 +46,7 @@ public class PlayerUIController : MonoBehaviour
         {
             playerStats.onHPChange -= OnHPChangeHandler;
             playerStats.onSoulsChange -= OnSoulsChangeHandler;
+            playerStats.onPlayerStateChange -= OnStateChangeHandler;
         }
     }
 
