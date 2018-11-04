@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour
     Collider2D enemyCollider;
 
     [SerializeField]
+    ParticleSystem EnemyDeathParticleSystem;
+
+    [SerializeField]
     [Range(0, 1)]
     float transparentValue = 0.25f;
 
@@ -55,7 +58,10 @@ public class Enemy : MonoBehaviour
         enemyState = startingEnemyState;
         SetShownSprite(enemyState);
         if (enemyState == EnemyState.Dead)
+        {
+            EnemyDeathParticleSystem.Play();
             DisableObject();
+        }
 
     }
 
@@ -114,6 +120,7 @@ public class Enemy : MonoBehaviour
         {
             SetShownSprite(EnemyState.Dead);
             enemyState = EnemyState.Dead;
+            EnemyDeathParticleSystem.Play();
             if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
                 EnableObject();
 
@@ -125,6 +132,7 @@ public class Enemy : MonoBehaviour
         {
             SetShownSprite(EnemyState.Alive);
             enemyState = EnemyState.Alive;
+            EnemyDeathParticleSystem.Stop();
             if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Alive)
                 EnableObject();
             else if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)

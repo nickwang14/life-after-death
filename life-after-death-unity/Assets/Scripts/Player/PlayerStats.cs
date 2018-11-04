@@ -184,6 +184,8 @@ public class PlayerStats : MonoBehaviour
         if (soulsParticleSystem != null)
             soulsParticleSystem.Stop();
 
+        invulTimer = invulTime;
+
         gameObject.layer = PlayerLightLayer;
     }
 
