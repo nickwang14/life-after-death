@@ -106,6 +106,7 @@ public class GameSceneManager : MonoBehaviour
             {
                 Vector3 movePoint = checkpointPositions[i].position;
                 player.transform.position = movePoint;
+                followCamera.MoveCamera(movePoint);
                 return;
             }
         }
