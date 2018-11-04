@@ -165,10 +165,6 @@ public class PlayerStats : MonoBehaviour
     public void DestroyPlayer()
     {
         State = PlayerState.Destroyed;
-<<<<<<< HEAD
-        //spriteRenderer.enabled = false;
-=======
->>>>>>> bffd2339b9663844f1afcd9154722ab8f325342f
     }
 
     public void DamagePlayer(float amount, bool force = false)
