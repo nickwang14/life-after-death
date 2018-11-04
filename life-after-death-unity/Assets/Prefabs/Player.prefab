@@ -407,9 +407,10 @@ MonoBehaviour:
   JumpingForce: 10
   GravityAcceleration: 10
   OppositeMovementMultiplier: 3
+  sfx: {fileID: 114969513366671976}
+  AudioTimer: 1
   anim: {fileID: 95402032253373912}
   spriteDirection: {fileID: 212109849545729290}
-  sfx: {fileID: 114969513366671976}
 --- !u!114 &114794421964121720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,7 +426,8 @@ MonoBehaviour:
   HighAttackTrigger: {fileID: 61591615067247110}
   Damage: 10
   player: {fileID: 114354051404424822}
-  attackDuration: 0.2
+  attackDuration: 0.5
+  sfx: {fileID: 114969513366671976}
 --- !u!114 &114847803416375704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,10 +455,10 @@ MonoBehaviour:
   playerWalk: {fileID: 8300000, guid: 562e98bc8ca9a4c9bb513cb9486b0d69, type: 3}
   playerJump: {fileID: 8300000, guid: 4424cb762c3b14fea9e6bde8815fe33d, type: 3}
   playerLand: {fileID: 0}
-  playerDmg: {fileID: 0}
-  playerAtk: {fileID: 0}
+  playerDmg: {fileID: 8300000, guid: 13f2a394c0f794da0b3b740bb4e6cdda, type: 3}
+  playerAtk: {fileID: 8300000, guid: 11cbc19c470f54ffdaf31dbd0a043aa2, type: 3}
   playerDeath: {fileID: 0}
-  playerDestroy: {fileID: 0}
+  playerDestroy: {fileID: 8300000, guid: 7f6a2fadc90964d568c2e4ac8b77ab91, type: 3}
 --- !u!198 &198936981109710896
 ParticleSystem:
   m_ObjectHideFlags: 1

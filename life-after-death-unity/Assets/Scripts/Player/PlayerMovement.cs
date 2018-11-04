@@ -44,17 +44,22 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     float OppositeMovementMultiplier = 2.5f;
+   
+    Rigidbody2D PlayerRigidbody;
 
+    // Audio fields
+    [SerializeField]
+    PlayerSoundManager sfx;
+
+    [SerializeField]
+    float AudioTimer = 0.00f;
+
+    // Animation Fields
     [SerializeField]
     Animator anim;
 
     [SerializeField]
     SpriteRenderer spriteDirection;
-
-    [SerializeField]
-    PlayerSoundManager sfx;
-
-    Rigidbody2D PlayerRigidbody;
 
     const string moveFloatString = "HorizontalSpeed";
     readonly int moveFloatHash = Animator.StringToHash(moveFloatString);
@@ -74,11 +79,12 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerMovementHorizontal()
     {
+       
         float horizontalAxis = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || horizontalAxis <= -0.2f)
         {
             directionFacing = FacingDirection.FacingLeft;
-            sfx.PlaySound("walk");
+            WalkAudio();
             if (PlayerSpeed.x > 0.0f)
             {
                 PlayerSpeed.x -= ((MovementAcceleration * OppositeMovementMultiplier) * -horizontalAxis) * Time.deltaTime;
@@ -91,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || horizontalAxis >= 0.2f)
         {
             directionFacing = FacingDirection.FacingRight;
-            sfx.PlaySound("walk");
+            WalkAudio();
             if (PlayerSpeed.x < 0.0f)
             {
                 PlayerSpeed.x += ((MovementAcceleration * OppositeMovementMultiplier) * horizontalAxis) * Time.deltaTime;
@@ -134,7 +140,17 @@ public class PlayerMovement : MonoBehaviour
         else
             spriteDirection.flipX = true;
     }
-
+    void WalkAudio(){
+        if (AudioTimer < .5f)
+        {
+            AudioTimer += Time.deltaTime;
+        }
+        else
+        {
+            AudioTimer = 0.00f;
+            sfx.PlaySound("walk");
+        }
+    }
     void SettingFinalMovement()
     {
         Vector2 newPosition = transform.position;

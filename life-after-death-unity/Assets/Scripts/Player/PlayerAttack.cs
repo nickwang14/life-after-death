@@ -22,6 +22,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     float attackDuration = 0.6f;
 
+    [SerializeField]
+    PlayerSoundManager sfx;
+
     bool isAttacking = false;
 
     // Use this for initialization
@@ -65,6 +68,7 @@ public class PlayerAttack : MonoBehaviour
         HighAttackTrigger.enabled = true;
 
         Invoke("StopAttack", attackDuration);
+        sfx.PlaySound("atk");
     }
 
     void StopAttack()
