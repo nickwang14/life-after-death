@@ -33,6 +33,8 @@ public class PlayerUIController : MonoBehaviour
         //playerSoulsSlider.maxValue = PlayerStats.MaxSouls;
         //OnSoulsChangeHandler(playerStats.Souls);
 
+        playerStats.onPlayerStateChange += OnStateChangeHandler;
+
         OnKeyNumberChangeHandler(0);
     }
 
@@ -72,6 +74,18 @@ public class PlayerUIController : MonoBehaviour
             keyIcon.gameObject.SetActive(true);
             numberOfKeyText.gameObject.SetActive(true);
             numberOfKeyText.text = string.Format("x {0}", newNumberOfKeys.ToString());
+        }
+    }
+    void OnStateChangeHandler(PlayerStats.PlayerState newState)
+    {
+        switch (newState)
+        {
+            case PlayerStats.PlayerState.Alive:
+                break;
+            case PlayerStats.PlayerState.Dead:
+                break;
+            case PlayerStats.PlayerState.Destroyed:
+                break;
         }
     }
 }
