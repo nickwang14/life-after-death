@@ -30,7 +30,7 @@ public class Elevator : MonoBehaviour
 
     IEnumerator MoveElevator(Player player)
     {
-        //Freeze player
+        player.PlayerMovement.AllowInput = false;
 
         while (transform.position.y != elevatorEndPoint.position.y)
         {
@@ -39,7 +39,7 @@ public class Elevator : MonoBehaviour
             yield return null;
         }
 
-        //Unfreeze player
+        player.PlayerMovement.AllowInput = true;
         yield break;
     }
 }
