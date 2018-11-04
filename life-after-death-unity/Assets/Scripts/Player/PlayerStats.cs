@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     public event Action<float> onHPChange = delegate { };
     public event Action<float> onSoulsChange = delegate { };
     public event Action<PlayerState> onPlayerStateChange = delegate { };
+    public event Action<int> onKeysChange = delegate { };
 
     int PlayerLightLayer = 12;
     int PlayerDarkLayer = 13;
@@ -27,8 +28,9 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField]
     float invulTime = 1.5f;
-
     float invulTimer = 0f;
+
+    int numOfKeys = 0;
 
     PlayerState state = PlayerState.Alive;
 
@@ -151,5 +153,30 @@ public class PlayerStats : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public bool HasKey
+    {
+        get { return numOfKeys > 0; }
+    }
+
+    public void AddKeys(int amount)
+    {
+        numOfKeys += amount;
+        onKeysChange(numOfKeys);
+    }
+
+    public void RemoveKey()
+    {
+        if (HasKey)
+        {
+            numOfKeys--;
+            onKeysChange(numOfKeys);
+        }
+    }
+
+    public int GetNumOfKeys()
+    {
+        return numOfKeys;
     }
 }
