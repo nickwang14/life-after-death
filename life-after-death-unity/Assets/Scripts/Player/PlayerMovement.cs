@@ -136,9 +136,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // Player Direction
         if (directionFacing == FacingDirection.FacingRight)
-            spriteDirection.flipX = false;
-        else
             spriteDirection.flipX = true;
+        else
+            spriteDirection.flipX = false;
     }
     void WalkAudio(){
         if (AudioTimer < .5f)
