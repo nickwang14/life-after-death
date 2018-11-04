@@ -35,11 +35,15 @@ public class PlayerStats : MonoBehaviour
     float invulTime = 1.5f;
     float invulTimer = 0f;
 
-    //Destroy animation fields
+    // Destroy animation fields
     [SerializeField]
     Animator anim;
     const string isDestroyedString = "IsDestroyed";
     readonly int isDestroyedHash = Animator.StringToHash(isDestroyedString);
+
+    // Player State Audio
+    [SerializeField]
+    SoundManager sfx;
 
     int numOfKeys = 0;
 
@@ -194,6 +198,7 @@ public class PlayerStats : MonoBehaviour
     public void DestroyPlayer()
     {
         State = PlayerState.Destroyed;
+        sfx.PlaySound("destroy");
         soulsParticleSystem.Stop();
         GameSceneManager.instance.OpenGameOverMenu();
     }
@@ -207,10 +212,12 @@ public class PlayerStats : MonoBehaviour
                 case PlayerState.Alive:
                     HP -= Mathf.Abs(amount);
                     invulTimer = invulTime;
+                    sfx.PlaySound("dmg");
                     break;
                 case PlayerState.Dead:
                     Souls -= Mathf.Abs(amount);
                     invulTimer = invulTime;
+                    sfx.PlaySound("dmg");
                     break;
                 case PlayerState.Destroyed:
                     break;
@@ -227,6 +234,7 @@ public class PlayerStats : MonoBehaviour
     {
         numOfKeys += amount;
         onKeysChange(numOfKeys);
+        sfx.PlaySound("key");
     }
 
     public void RemoveKey()

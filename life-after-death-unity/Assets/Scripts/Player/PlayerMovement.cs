@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Audio fields
     [SerializeField]
-    PlayerSoundManager sfx;
+    SoundManager sfx;
 
     [SerializeField]
     float AudioTimer = 0.00f;
