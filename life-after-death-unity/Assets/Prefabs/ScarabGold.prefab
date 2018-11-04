@@ -174,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1190182168322642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: -3.19, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4196554336518090}
@@ -318,11 +318,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 114245133292440046}
   rigid: {fileID: 50135217253252216}
-  anim: {fileID: 95953351948990490}
+  liveAnim: {fileID: 95723492315706338}
+  deadAnim: {fileID: 95953351948990490}
   speed: 1
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  leftDistance: 1
+  rightDistance: 1
 --- !u!114 &114874860135694500
 MonoBehaviour:
   m_ObjectHideFlags: 1

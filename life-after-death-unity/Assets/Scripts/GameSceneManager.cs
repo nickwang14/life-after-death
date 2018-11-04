@@ -56,7 +56,7 @@ public class GameSceneManager : MonoBehaviour
 
     static public Player ActivePlayer
     {
-        get { return instance.player; }
+        get { return instance != null ? instance.player : null; }
     }
 
     void OnStateChangeHandler(PlayerStats.PlayerState newState)

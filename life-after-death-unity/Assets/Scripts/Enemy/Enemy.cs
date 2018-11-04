@@ -67,7 +67,8 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameSceneManager.ActivePlayer.PlayerStats.onPlayerStateChange -= OnStateChangeHandler;
+        if (GameSceneManager.ActivePlayer != null && GameSceneManager.ActivePlayer.PlayerStats != null)
+            GameSceneManager.ActivePlayer.PlayerStats.onPlayerStateChange -= OnStateChangeHandler;
     }
 
     void Update()

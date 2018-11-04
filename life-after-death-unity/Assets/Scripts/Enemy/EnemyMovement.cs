@@ -15,7 +15,10 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody2D rigid;
 
     [SerializeField]
-    Animator anim;
+    Animator liveAnim;
+
+    [SerializeField]
+    Animator deadAnim;
 
     [SerializeField]
     float speed = 1f;
@@ -36,7 +39,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        anim.SetFloat(speedFlotHash, speed);
+        liveAnim.SetFloat(speedFlotHash, speed);
+        deadAnim.SetFloat(speedFlotHash, speed);
         SetupWaypoints();
         target = patrolPoints[patrolPointIndex];
     }
@@ -88,7 +92,7 @@ public class EnemyMovement : MonoBehaviour
         leftWaypoint.x -= leftDistance;
 
         Vector2 rightWaypoint = transform.position;
-        rightWaypoint.x -= rightDistance;
+        rightWaypoint.x += rightDistance;
 
         patrolPoints = new Vector2[] { leftWaypoint, rightWaypoint };
     }
