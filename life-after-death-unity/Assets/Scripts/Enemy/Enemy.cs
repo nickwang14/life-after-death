@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     int EnemyHPIncrease = 10;
 
+    Color baseColor;
+
     // Use this for initialization
     void Start ()
     {
@@ -44,6 +46,8 @@ public class Enemy : MonoBehaviour
         enemyRenderer = GetComponent<Renderer>();
         //enemyCollider = GetComponentInChildren<Collider2D>();
         GameSceneManager.ActivePlayer.PlayerStats.onPlayerStateChange += OnStateChangeHandler;
+
+        baseColor = ((SpriteRenderer)enemyRenderer).color;
     }
 
     private void OnDestroy()
@@ -55,6 +59,18 @@ public class Enemy : MonoBehaviour
     void Update ()
     {
         invulTimer = Mathf.MoveTowards(invulTimer, 0f, Time.deltaTime);
+
+        if (IsInvulnerable)
+        {
+            float emission = Mathf.PingPong(Time.time * 7.5f, 1.0f);
+
+            ((SpriteRenderer)enemyRenderer).color = new Color(baseColor.r, emission, emission);
+        }
+        else
+        {
+            if (((SpriteRenderer)enemyRenderer).color != baseColor)
+                ((SpriteRenderer)enemyRenderer).color = baseColor;
+        }
     }
 
     void OnStateChangeHandler(PlayerStats.PlayerState newState)
