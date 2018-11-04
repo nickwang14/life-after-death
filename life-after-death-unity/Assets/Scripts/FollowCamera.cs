@@ -40,7 +40,7 @@ public class FollowCamera : MonoBehaviour
         if (followTarget != null && shouldFollow)
             FollowTarget(Time.deltaTime);
 
-        if(GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
+        if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
         {
             if (postProcessing.enabled != true)
                 postProcessing.enabled = true;
@@ -51,12 +51,19 @@ public class FollowCamera : MonoBehaviour
             if (postProcessing.enabled != false)
                 postProcessing.enabled = false;
         }
-        
+
     }
 
     void FollowTarget(float deltaTime)
     {
         Vector3 newPosition = Vector2.MoveTowards(transform.position, followTarget.position, deltaTime * followSpeed);
+        newPosition.z = transform.position.z;
+        transform.position = newPosition;
+    }
+
+    public void MoveCamera(Vector3 position)
+    {
+        Vector3 newPosition = position;
         newPosition.z = transform.position.z;
         transform.position = newPosition;
     }
