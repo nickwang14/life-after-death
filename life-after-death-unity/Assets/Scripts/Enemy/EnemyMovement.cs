@@ -22,22 +22,27 @@ public class EnemyMovement : MonoBehaviour
 
     bool leftFacing = true;
 
-    [SerializeField]
-    Transform[] patrolPoints;
+    Vector2[] patrolPoints;
 
     int patrolPointIndex = 0;
 
     Vector2 target;
 
+    [SerializeField]
+    float leftDistance = 1f;
+
+    [SerializeField]
+    float rightDistance = 1f;
+
     void Start()
     {
         anim.SetFloat(speedFlotHash, speed);
-        target = patrolPoints[patrolPointIndex].position;
+        SetupWaypoints();
+        target = patrolPoints[patrolPointIndex];
     }
 
     void Update()
     {
-        //MoveForward();
         MoveTowardsTarget();
     }
 
@@ -68,12 +73,23 @@ public class EnemyMovement : MonoBehaviour
     void SetNextWaypoint()
     {
         patrolPointIndex = (patrolPointIndex + 1) % patrolPoints.Length;
-        target = patrolPoints[patrolPointIndex].position;
+        target = patrolPoints[patrolPointIndex];
     }
 
     public void TurnArround()
     {
         leftFacing = !leftFacing;
         enemy.SetSpriteFlip(!leftFacing);
+    }
+
+    void SetupWaypoints()
+    {
+        Vector2 leftWaypoint = transform.position;
+        leftWaypoint.x -= leftDistance;
+
+        Vector2 rightWaypoint = transform.position;
+        rightWaypoint.x -= rightDistance;
+
+        patrolPoints = new Vector2[] { leftWaypoint, rightWaypoint };
     }
 }
