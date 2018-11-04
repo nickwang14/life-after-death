@@ -84,6 +84,13 @@ public class PlayerAttack : MonoBehaviour
                 enemy.TakeDamage(Damage);
                 Debug.Log("HitEnemy");
             }
+
+            AnubisBoss boss = col.GetComponent<AnubisBoss>();
+            if(boss != null)
+            {
+                boss.TakeDamage(Damage);
+                Debug.Log("hitboss");
+            }
         }
     }
 }

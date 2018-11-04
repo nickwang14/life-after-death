@@ -6,10 +6,10 @@ public class Enemy : MonoBehaviour
 {
     public enum EnemyState { Alive, Dead };
 
-    private EnemyState enemyState = EnemyState.Alive;
+    public EnemyState enemyState = EnemyState.Alive;
 
     [SerializeField]
-    EnemyState startingEnemyState = EnemyState.Alive;
+    public EnemyState startingEnemyState = EnemyState.Alive;
 
     [SerializeField]
     int EnemyHP = 20;
@@ -146,6 +146,29 @@ public class Enemy : MonoBehaviour
         MaxHP = MaxHP + EnemyHPIncrease;
         EnemyHP = MaxHP;
         GameSceneManager.ActivePlayer.PlayerStats.Souls += soulsAmount;
+    }
+
+    public void SwitchToDeath()
+    {
+        enemyState = EnemyState.Dead;
+        SetShownSprite(EnemyState.Dead);
+        EnemyDeathParticleSystem.Play();
+        if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
+            EnableObject();
+
+        else if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Alive)
+            DisableObject();
+    }
+
+    public void SwitchToAlive()
+    {
+        SetShownSprite(EnemyState.Alive);
+        enemyState = EnemyState.Alive;
+        EnemyDeathParticleSystem.Stop();
+        if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Alive)
+            EnableObject();
+        else if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
+            DisableObject();
     }
 
     void DisableObject()

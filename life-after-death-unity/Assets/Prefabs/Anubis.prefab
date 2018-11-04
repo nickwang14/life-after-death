@@ -37,9 +37,40 @@ GameObject:
   - component: {fileID: 114794010764932246}
   - component: {fileID: 212396065531988228}
   - component: {fileID: 95877126585913462}
-  - component: {fileID: 61796985061329848}
-  m_Layer: 0
+  - component: {fileID: 70308493147048524}
+  m_Layer: 16
   m_Name: Anubis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1549712552460158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4665839814698066}
+  - component: {fileID: 70475048418081438}
+  m_Layer: 9
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1594292676605250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4903366211582066}
+  m_Layer: 0
+  m_Name: ZombieSpawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,15 +96,43 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377454673608276}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 86.0127, y: -11.850639, z: 0}
+  m_LocalPosition: {x: 85.917496, y: -11.881523, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4175921631460568}
+  - {fileID: 4903366211582066}
+  - {fileID: 4665839814698066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!61 &61796985061329848
-BoxCollider2D:
+--- !u!4 &4665839814698066
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549712552460158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4354514151968898}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4903366211582066
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594292676605250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.506, y: -0.435, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4354514151968898}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &70308493147048524
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -81,22 +140,27 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.57, y: 1.27}
+  m_Direction: 0
+--- !u!70 &70475048418081438
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549712552460158}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 1.27}
-    newSize: {x: 0.77, y: 1.27}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.77, y: 2.26}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.57, y: 1.27}
+  m_Direction: 0
 --- !u!95 &95877126585913462
 Animator:
   serializedVersion: 3
@@ -128,10 +192,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projecileSprite: {fileID: 1636820304811074, guid: 28a72a59cc525464982d76ad9e1d3db6,
     type: 2}
+  Zombie: {fileID: 1247021033812700, guid: 4fc6e519d12068f48b6ebb59528f9ea9, type: 2}
   TimerToFire: 1
   bulletSpeed: 1
   spreadBulletAmount: 6
   FireLocation: {fileID: 1355731164119204}
+  ZombieSpawnLocation: {fileID: 1594292676605250}
+  AnubisHealth: 80
+  invulTime: 1.5
+  AnubisSprite: {fileID: 212396065531988228}
 --- !u!212 &212396065531988228
 SpriteRenderer:
   m_ObjectHideFlags: 1

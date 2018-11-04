@@ -7,6 +7,11 @@ public class AnubisBoss : MonoBehaviour {
     [SerializeField]
     GameObject projecileSprite;
 
+    [SerializeField]
+    GameObject Zombie;
+
+    List<GameObject> ZombiePool;
+
     List<GameObject> ProjectilePool;
 
     [SerializeField]
@@ -23,8 +28,30 @@ public class AnubisBoss : MonoBehaviour {
     [SerializeField]
     GameObject FireLocation;
 
-	// Use this for initialization
-	void Start ()
+    [SerializeField]
+    GameObject ZombieSpawnLocation;
+
+    [SerializeField]
+    int AnubisHealth = 100;
+
+    [SerializeField]
+    float invulTime = 1.5f;
+
+    float invulTimer = 0f;
+
+    [SerializeField]
+    SpriteRenderer AnubisSprite;
+
+    public bool IsInvulnerable
+    {
+        get { return invulTimer > 0f; }
+    }
+
+
+    Color baseColor = Color.white;
+
+    // Use this for initialization
+    void Start ()
     {
         ProjectilePool = new List<GameObject>();
         for(int i = 0; i < 300; i++)
@@ -33,31 +60,58 @@ public class AnubisBoss : MonoBehaviour {
             ProjectilePool[i].SetActive(false);
         }
 
+        ZombiePool = new List<GameObject>();
+        for (int i = 0; i < 25; i++)
+        {
+            ZombiePool.Add(Instantiate(Zombie, ZombieSpawnLocation.transform.position, Quaternion.identity));
+            ZombiePool[i].SetActive(false);
+        }
+
         fireParticleTimer = TimerToFire;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        invulTimer = Mathf.MoveTowards(invulTimer, 0f, Time.deltaTime);
+
+        if (IsInvulnerable)
+        {
+            float emission = Mathf.PingPong(Time.time * 7.5f, 1.0f);
+            SetSpriteColor(new Color(baseColor.r, emission, emission));
+        }
+        else
+        {
+            SetSpriteColor(baseColor);
+        }
+
         fireParticleTimer -= 1.0f * Time.deltaTime;
 
         if(fireParticleTimer <= 0)
         {
             int attackChoice = Random.Range(0, 100);
 
-            if (attackChoice >= 0 && attackChoice <= 50)
+            if (attackChoice >= 0 && attackChoice <= 60)
                 Fire();
 
-            else if (attackChoice > 50 && attackChoice <= 60)
+            else if (attackChoice > 60 && attackChoice <= 70)
                 FireSpread(spreadBulletAmount);
 
             else
             {
-                SpawnSkeleton();
+                SpawnZombie();
             }
 
             fireParticleTimer = TimerToFire;
         }
+
+    }
+
+    void SetSpriteColor(Color newColor)
+    {
+        Color liveColor = newColor;
+        liveColor.a = AnubisSprite.color.a;
+        AnubisSprite.color = liveColor;
 
     }
 
@@ -106,8 +160,69 @@ public class AnubisBoss : MonoBehaviour {
         }
     }
 
-    void SpawnSkeleton()
+    void SpawnZombie()
     {
+        GameObject tempZombie;
 
+        for (int i = 0; i < 25; i++)
+        {
+            if (!ZombiePool[i].activeInHierarchy)
+            {
+                tempZombie = ZombiePool[i];
+                tempZombie.transform.position = ZombieSpawnLocation.transform.position;
+
+                tempZombie.GetComponent<ZombieMovement>().TurnArround();
+
+                int stateRandom = Random.Range(0, 101);
+                Debug.Log(stateRandom);
+                if (stateRandom <= 40)
+                {
+                    tempZombie.GetComponent<Enemy>().startingEnemyState = Enemy.EnemyState.Alive;
+                    tempZombie.GetComponent<Enemy>().SwitchToAlive();
+                }
+                else
+                {
+                    tempZombie.GetComponent<Enemy>().startingEnemyState = Enemy.EnemyState.Dead; 
+                    tempZombie.GetComponent<Enemy>().SwitchToDeath();
+                }
+
+
+                tempZombie.SetActive(true);
+                break;
+            }
+        }
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        if (GameSceneManager.ActivePlayer.PlayerStats.State == PlayerStats.PlayerState.Dead)
+            return;
+        if (IsInvulnerable)
+            return;
+
+        AnubisHealth -= dmg;
+        AnubisHealth = Mathf.Clamp(AnubisHealth, 0, 100);
+        invulTimer = invulTime;
+        if (AnubisHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        foreach (GameObject item in ZombiePool)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (GameObject item in ProjectilePool)
+        {
+            Destroy(item.gameObject);
+        }
+
+        GameSceneManager.ActivePlayer.PlayerStats.AddKeys(1);
+
+        Destroy(this.gameObject);
     }
 }
