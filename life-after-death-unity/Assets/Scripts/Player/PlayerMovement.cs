@@ -58,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Animator anim;
 
+    public Animator GetAnim()
+    {
+        return anim;
+    }
+
     [SerializeField]
     SpriteRenderer spriteDirection;
 

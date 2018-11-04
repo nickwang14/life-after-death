@@ -52,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
+        player.GetAnim().SetTrigger("Attack");
         if (player.GetDirectionFacing() == PlayerMovement.FacingDirection.FacingRight)
         {
             if (HighAttackTrigger.transform.localPosition.x < 0)
