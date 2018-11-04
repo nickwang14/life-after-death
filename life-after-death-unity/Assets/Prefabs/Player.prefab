@@ -426,7 +426,8 @@ MonoBehaviour:
   HighAttackTrigger: {fileID: 61591615067247110}
   Damage: 10
   player: {fileID: 114354051404424822}
-  attackDuration: 0.2
+  attackDuration: 0.5
+  sfx: {fileID: 114969513366671976}
 --- !u!114 &114847803416375704
 MonoBehaviour:
   m_ObjectHideFlags: 1
