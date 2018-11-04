@@ -132,23 +132,25 @@ public class PlayerStats : MonoBehaviour
             case PlayerState.Destroyed:
                 break;
         }
-
-        if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Jump"))
+        if (Application.isEditor)
         {
-            //Switch World
-            if (State == PlayerStats.PlayerState.Alive)
+            if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Jump"))
             {
-                KillPlayer();
-            }
+                //Switch World
+                if (State == PlayerStats.PlayerState.Alive)
+                {
+                    KillPlayer();
+                }
 
-            else if (State == PlayerStats.PlayerState.Dead)
-            {
-                ResurrectPlayer();
-            }
+                else if (State == PlayerStats.PlayerState.Dead)
+                {
+                    ResurrectPlayer();
+                }
 
-            else if(State == PlayerState.Destroyed)
-            {
-                HP = 0;
+                else if (State == PlayerState.Destroyed)
+                {
+                    HP = 0;
+                }
             }
         }
 
@@ -193,6 +195,7 @@ public class PlayerStats : MonoBehaviour
     {
         State = PlayerState.Destroyed;
         soulsParticleSystem.Stop();
+        GameSceneManager.instance.OpenGameOverMenu();
     }
 
     public void DamagePlayer(float amount, bool force = false)

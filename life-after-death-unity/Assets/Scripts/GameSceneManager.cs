@@ -15,7 +15,7 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     GameSceneMenu gameOverMenu;
 
-    static GameSceneManager instance = null;
+    public static GameSceneManager instance = null;
 
     static public event Action<PlayerStats.PlayerState> onPlayerStateChange = delegate { };
 
@@ -79,7 +79,7 @@ public class GameSceneManager : MonoBehaviour
         PauseGame();
     }
 
-    void OpenGameOverMenu()
+    public void OpenGameOverMenu()
     {
         gameOverMenu.OpenMenu();
         gameState = GameState.GameOverMenu;
