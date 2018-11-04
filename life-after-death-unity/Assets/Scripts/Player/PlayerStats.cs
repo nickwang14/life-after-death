@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
 
     public enum PlayerState { Alive, Dead, Destroyed };
 
-    float startingHP = 50f;
+    float startingHP = MaxHP;
     float startingSouls = 50f;
 
     float soulsDecayRate = 1f;//Soul decay per second
@@ -25,6 +25,8 @@ public class PlayerStats : MonoBehaviour
 
     float currentHP;
     float currentSouls;
+
+    Player player;
 
     [SerializeField]
     float invulTime = 1.5f;
@@ -87,7 +89,7 @@ public class PlayerStats : MonoBehaviour
                 anim.SetBool(isDestroyedHash, true);
             }
 
-            if(currentSouls > MaxSouls)
+            if (currentSouls > MaxSouls)
             {
                 ResurrectPlayer();
             }
@@ -99,6 +101,7 @@ public class PlayerStats : MonoBehaviour
     {
         HP = MaxHP;
 
+        player = GetComponent<Player>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         baseColor = spriteRenderer.color;
@@ -111,7 +114,8 @@ public class PlayerStats : MonoBehaviour
             case PlayerState.Alive:
                 break;
             case PlayerState.Dead:
-                Souls -= soulsDecayRate * Time.deltaTime;
+                if (player.PlayerMovement.AllowInput)
+                    Souls -= soulsDecayRate * Time.deltaTime;
                 break;
             case PlayerState.Destroyed:
                 break;
