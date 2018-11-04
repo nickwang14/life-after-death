@@ -27,6 +27,12 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     FollowCamera followCamera;
 
+    [SerializeField]
+    string[] checkpointFlags;
+
+    [SerializeField]
+    Transform[] checkpointPositions;
+
     void Awake()
     {
         instance = this;
@@ -37,6 +43,7 @@ public class GameSceneManager : MonoBehaviour
         //followCamera.Target = player.transform;
         playerState = player.PlayerStats.State;
         player.PlayerStats.onPlayerStateChange += OnStateChangeHandler;
+        CheckpointLoad();
     }
 
     void OnDestroy()
@@ -87,5 +94,20 @@ public class GameSceneManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         instance.gameState = GameState.Playing;
+    }
+
+    void CheckpointLoad()
+    {
+        ProgresionFlags flags = GameController.ProgresionFlags;
+        for (int i = checkpointFlags.Length - 1; i >= 0; i--)
+        {
+            string flag = checkpointFlags[i];
+            if (flags.HasFlag(flag))
+            {
+                Vector3 movePoint = checkpointPositions[i].position;
+                player.transform.position = movePoint;
+                return;
+            }
+        }
     }
 }
