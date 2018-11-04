@@ -1,0 +1,593 @@
+fileFormatVersion: 2
+guid: e367590ffc9e44048bd502304d1a478f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: shoot__em_up___projectiles_by_balduranne-d7dxxsd_0
+    21300002: shoot__em_up___projectiles_by_balduranne-d7dxxsd_1
+    21300004: shoot__em_up___projectiles_by_balduranne-d7dxxsd_2
+    21300006: shoot__em_up___projectiles_by_balduranne-d7dxxsd_3
+    21300008: shoot__em_up___projectiles_by_balduranne-d7dxxsd_4
+    21300010: shoot__em_up___projectiles_by_balduranne-d7dxxsd_5
+    21300012: shoot__em_up___projectiles_by_balduranne-d7dxxsd_6
+    21300014: shoot__em_up___projectiles_by_balduranne-d7dxxsd_7
+    21300016: shoot__em_up___projectiles_by_balduranne-d7dxxsd_8
+    21300018: shoot__em_up___projectiles_by_balduranne-d7dxxsd_9
+    21300020: shoot__em_up___projectiles_by_balduranne-d7dxxsd_10
+    21300022: shoot__em_up___projectiles_by_balduranne-d7dxxsd_11
+    21300024: shoot__em_up___projectiles_by_balduranne-d7dxxsd_12
+    21300026: shoot__em_up___projectiles_by_balduranne-d7dxxsd_13
+    21300028: shoot__em_up___projectiles_by_balduranne-d7dxxsd_14
+    21300030: shoot__em_up___projectiles_by_balduranne-d7dxxsd_15
+    21300032: shoot__em_up___projectiles_by_balduranne-d7dxxsd_16
+    21300034: shoot__em_up___projectiles_by_balduranne-d7dxxsd_17
+    21300036: shoot__em_up___projectiles_by_balduranne-d7dxxsd_18
+    21300038: shoot__em_up___projectiles_by_balduranne-d7dxxsd_19
+    21300040: shoot__em_up___projectiles_by_balduranne-d7dxxsd_20
+    21300042: shoot__em_up___projectiles_by_balduranne-d7dxxsd_21
+    21300044: shoot__em_up___projectiles_by_balduranne-d7dxxsd_22
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 345
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1d9fe61f6a63f4696affd52adf54b2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 380
+        width: 40
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23362ee6623b7f242affa74cb6bcee59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_2
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 380
+        width: 40
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d7f0b8c3ec0a84b97582eb3ee1e814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_3
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 380
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3cb3224cf915e4da5fa2d5323dc708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_4
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 380
+        width: 40
+        height: 40
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a11f3174eeb7ad49b60977420fd1cb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_5
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 305
+        width: 15
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7af557c324de1448a72bff00da8b93d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_6
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 305
+        width: 15
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdacb5f4898cb05478cefa436311d82a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 305
+        width: 15
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b70244ff6928a4490eff1c3f1682d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 305
+        width: 15
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527da5b95aeefc3438af382eae1aa447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_9
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 260
+        width: 35
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e9c6a2ba1331241b212fcc3f6ea223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_10
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 260
+        width: 15
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c540e20a20d54748b00e9d5b28cfed1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_11
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 295
+        width: 40
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3510a66ad361e41bf576a053a55ced
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_12
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 295
+        width: 40
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e53c729c35c4b694bb561e23a1ebea56
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_13
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 295
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41e93a53f1e31041850580d07dedceb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_14
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 295
+        width: 40
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6949148300cf3274886286bb780801ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd52542493aad54d9dc528ead45e551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_16
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 165
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac76a8d83dd1264b8a048ff7ace6b4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_17
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 165
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9401db88eb8196b44a43f63d4715cac0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_18
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 165
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e039db314e1e147a6db6dc3d69b14e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_19
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 60
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0e9c87d52c8534cb8c9c07ac216d0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_20
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 60
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802c0c9ff08d32643b0d3fa403b46da8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_21
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 60
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99061d1ea81d7b242b7ce6f03aef064d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot__em_up___projectiles_by_balduranne-d7dxxsd_22
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 0
+        width: 60
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0285e248cc0a3eb4588aa3856e345267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 36c6c0657df29cc4a9846e9c974d4e46
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
