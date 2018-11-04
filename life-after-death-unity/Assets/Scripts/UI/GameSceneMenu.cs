@@ -23,7 +23,7 @@ public class GameSceneMenu : MonoBehaviour
 
     public void RestartAtCheckpointButtonClick()
     {
-        //Implement checkpoints
+        SceneManager.LoadScene("GameScene");
         GameSceneManager.UnPauseGame();
     }
 
