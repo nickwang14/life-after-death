@@ -30,6 +30,12 @@ public class PlayerStats : MonoBehaviour
     float invulTime = 1.5f;
     float invulTimer = 0f;
 
+    //Destroy animation fields
+    [SerializeField]
+    Animator anim;
+    const string isDestroyedString = "IsDestroyed";
+    readonly int isDestroyedHash = Animator.StringToHash(isDestroyedString);
+
     int numOfKeys = 0;
 
     SpriteRenderer spriteRenderer;
@@ -78,6 +84,7 @@ public class PlayerStats : MonoBehaviour
             {
                 currentSouls = 0f;
                 DestroyPlayer();
+                anim.SetBool(isDestroyedHash, true);
             }
             onSoulsChange(currentSouls);
         }
@@ -153,7 +160,6 @@ public class PlayerStats : MonoBehaviour
     public void DestroyPlayer()
     {
         State = PlayerState.Destroyed;
-        spriteRenderer.enabled = false;
     }
 
     public void DamagePlayer(float amount, bool force = false)
