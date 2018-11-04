@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     int EnemyHP = 20;
 
+    [SerializeField]
+    int soulsAmount = 75;
+
     int MaxHP;
 
     [SerializeField]
@@ -125,6 +128,7 @@ public class Enemy : MonoBehaviour
 
         MaxHP = MaxHP + EnemyHPIncrease;
         EnemyHP = MaxHP;
+        GameSceneManager.ActivePlayer.PlayerStats.Souls += soulsAmount;
     }
 
     void DisableObject()

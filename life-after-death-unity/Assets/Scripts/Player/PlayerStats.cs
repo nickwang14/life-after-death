@@ -79,6 +79,11 @@ public class PlayerStats : MonoBehaviour
                 currentSouls = 0f;
                 DestroyPlayer();
             }
+
+            if(currentSouls > MaxSouls)
+            {
+                ResurrectPlayer();
+            }
             onSoulsChange(currentSouls);
         }
     }
@@ -153,7 +158,7 @@ public class PlayerStats : MonoBehaviour
     public void DestroyPlayer()
     {
         State = PlayerState.Destroyed;
-        spriteRenderer.enabled = false;
+        //spriteRenderer.enabled = false;
     }
 
     public void DamagePlayer(float amount, bool force = false)
