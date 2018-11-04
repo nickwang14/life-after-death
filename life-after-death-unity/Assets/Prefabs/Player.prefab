@@ -382,6 +382,7 @@ MonoBehaviour:
   soulsParticleSystem: {fileID: 198936981109710896}
   invulTime: 1.5
   anim: {fileID: 95402032253373912}
+  sfx: {fileID: 114969513366671976}
 --- !u!114 &114354051404424822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -455,10 +456,11 @@ MonoBehaviour:
   playerWalk: {fileID: 8300000, guid: 562e98bc8ca9a4c9bb513cb9486b0d69, type: 3}
   playerJump: {fileID: 8300000, guid: 4424cb762c3b14fea9e6bde8815fe33d, type: 3}
   playerLand: {fileID: 0}
-  playerDmg: {fileID: 8300000, guid: 13f2a394c0f794da0b3b740bb4e6cdda, type: 3}
+  playerDmg: {fileID: 8300000, guid: 9f3ae687fbfe94b7ca5a9370616437a4, type: 3}
   playerAtk: {fileID: 8300000, guid: 11cbc19c470f54ffdaf31dbd0a043aa2, type: 3}
   playerDeath: {fileID: 0}
-  playerDestroy: {fileID: 8300000, guid: 7f6a2fadc90964d568c2e4ac8b77ab91, type: 3}
+  playerDestroy: {fileID: 8300000, guid: 8a8d68a01d08248e680924fb91eed331, type: 3}
+  newKey: {fileID: 8300000, guid: 9a496456836c94785899beaff7a65f91, type: 3}
 --- !u!198 &198936981109710896
 ParticleSystem:
   m_ObjectHideFlags: 1

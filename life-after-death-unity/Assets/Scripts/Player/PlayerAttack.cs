@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     float attackDuration = 0.6f;
 
     [SerializeField]
-    PlayerSoundManager sfx;
+    SoundManager sfx;
 
     bool isAttacking = false;
 

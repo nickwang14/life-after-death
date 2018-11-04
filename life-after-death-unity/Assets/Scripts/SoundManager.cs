@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSoundManager : MonoBehaviour {
+public class SoundManager : MonoBehaviour {
 
     public AudioClip playerWalk, playerJump, playerLand, playerDmg, playerAtk, playerDeath, playerDestroy;
-
+    public AudioClip newKey;
     static AudioSource playerAudio;
 
 	// Use this for initialization
-	void Start () {
-
+    void Start () {
         playerAudio = GetComponent<AudioSource>();
     }
 	
@@ -43,7 +42,9 @@ public class PlayerSoundManager : MonoBehaviour {
             case "destroy":
                 playerAudio.PlayOneShot(playerDestroy);
                 break;
-
+            case "key":
+                playerAudio.PlayOneShot(newKey);
+                break;
         }
     }
 }
