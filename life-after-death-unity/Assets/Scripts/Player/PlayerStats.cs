@@ -29,6 +29,9 @@ public class PlayerStats : MonoBehaviour
     Player player;
 
     [SerializeField]
+    ParticleSystem soulsParticleSystem;
+
+    [SerializeField]
     float invulTime = 1.5f;
     float invulTimer = 0f;
 
@@ -116,6 +119,10 @@ public class PlayerStats : MonoBehaviour
             case PlayerState.Dead:
                 if (player.PlayerMovement.AllowInput)
                     Souls -= soulsDecayRate * Time.deltaTime;
+                ParticleSystem.EmissionModule emission = soulsParticleSystem.emission;
+                float normalizedSouls = Souls / MaxSouls;
+                emission.rateOverTime = 100.0f * normalizedSouls;
+                //soulsParticleSystem.setem = emission;
                 break;
             case PlayerState.Destroyed:
                 break;
@@ -154,6 +161,7 @@ public class PlayerStats : MonoBehaviour
     {
         State = PlayerState.Dead;
         Souls = startingSouls;
+        soulsParticleSystem.Play();
 
         gameObject.layer = PlayerDarkLayer;
     }
@@ -162,6 +170,7 @@ public class PlayerStats : MonoBehaviour
     {
         State = PlayerState.Alive;
         HP = startingHP;
+        soulsParticleSystem.Stop();
 
         gameObject.layer = PlayerLightLayer;
     }
@@ -169,6 +178,7 @@ public class PlayerStats : MonoBehaviour
     public void DestroyPlayer()
     {
         State = PlayerState.Destroyed;
+        soulsParticleSystem.Stop();
     }
 
     public void DamagePlayer(float amount, bool force = false)
