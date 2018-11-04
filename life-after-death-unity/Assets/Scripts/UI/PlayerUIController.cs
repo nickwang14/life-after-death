@@ -7,7 +7,7 @@ public class PlayerUIController : MonoBehaviour
     PlayerStats playerStats;
 
     [SerializeField]
-    GameObject playerHPConainter;
+    GameObject playerHPContainer;
     [SerializeField]
     Slider playerHpSlider;
 
@@ -29,9 +29,9 @@ public class PlayerUIController : MonoBehaviour
         playerStats.onHPChange += OnHPChangeHandler;
         OnHPChangeHandler(playerStats.HP);
 
-        //playerStats.onSoulsChange += OnSoulsChangeHandler;
-        //playerSoulsSlider.maxValue = PlayerStats.MaxSouls;
-        //OnSoulsChangeHandler(playerStats.Souls);
+        playerSoulsSlider.maxValue = PlayerStats.MaxSouls;
+        playerStats.onSoulsChange += OnSoulsChangeHandler;
+        OnSoulsChangeHandler(playerStats.Souls);
 
         playerStats.onPlayerStateChange += OnStateChangeHandler;
 
@@ -81,10 +81,16 @@ public class PlayerUIController : MonoBehaviour
         switch (newState)
         {
             case PlayerStats.PlayerState.Alive:
+                playerHPContainer.SetActive(true);
+                playerSoulsContainer.SetActive(false);
                 break;
             case PlayerStats.PlayerState.Dead:
+                playerHPContainer.SetActive(false);
+                playerSoulsContainer.SetActive(true);
                 break;
             case PlayerStats.PlayerState.Destroyed:
+                playerHPContainer.SetActive(false);
+                playerSoulsContainer.SetActive(false);
                 break;
         }
     }
